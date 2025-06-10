@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
+  m_Name: cmdSiphon
+  m_EditorClassIdentifier: 
+  commandName: Siphon
+  description: Deal [0] damage and heal for [1] health
+  cost: 20
+  tier: 1
+  tags:
+  - Offensive
+  - Vampiric
+  effectValueReferences:
+  - {fileID: 11400000, guid: 3f841fa3d55fe8144b9060093887456a, type: 2}
+  - {fileID: 11400000, guid: 2731dd2e26b16644a818148556077578, type: 2}
+  effectValue:
+  - 8
+  - 8
+  effects:
+  - {fileID: 11400000, guid: f6bed4533ecb0554aa5a557edae68446, type: 2}
+  - {fileID: 11400000, guid: d7f39dddb1a5ece4e97eb4d357fd5565, type: 2}
