@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "RetriggerNextEffect", menuName = "ScriptableObjects/CommandEffects/RetriggerNextEffect")]
+public class RetriggerNextEffectSO : BaseCommandEffectSO
+{
+    [SerializeField]
+    private CommandValueEnumSO retriggerReference;
+    public override string GetEffectSummary()
+    {
+        return "Next command will be triggered multiple times";
+    }
+
+    public override void Trigger(CommandEffectContext context)
+    {
+        float retriggerValue = context.SourceCommand.data.GetEffectValueByReference(retriggerReference);
+        string nameValue = context.SourceCommand.data.commandName;
+        Debug.Log($"Command {nameValue} will make the next command trigger {retriggerValue} times");
+    }
+}

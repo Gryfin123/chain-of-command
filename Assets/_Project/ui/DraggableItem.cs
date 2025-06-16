@@ -39,6 +39,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     // Start is called before the first frame update
     void Start()
     {
+        canvas = GetComponentInParent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         image = GetComponent<Image>();
     }

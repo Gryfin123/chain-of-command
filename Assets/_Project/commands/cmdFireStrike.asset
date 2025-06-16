@@ -20,7 +20,7 @@ MonoBehaviour:
   - Offensive
   - Destructive
   - Fire
-  effectValueReferences:
+  effectValueEnums:
   - {fileID: 11400000, guid: 3f841fa3d55fe8144b9060093887456a, type: 2}
   effectValue:
   - 10

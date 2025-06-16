@@ -9,7 +9,7 @@ using UnityEngine.UI;
 // to process any Effect logic. This is responsibility of CommandEffectProcessor
 public class CommandController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public CommandDataSO data;
+    public CommandDataTemplateSO data;
 
     [SerializeField] private TextMeshProUGUI labelName;
     [SerializeField] private TextMeshProUGUI labelDescription;

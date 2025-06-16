@@ -19,7 +19,7 @@ MonoBehaviour:
   tags:
   - Offensive
   - Vampiric
-  effectValueReferences:
+  effectValueEnums:
   - {fileID: 11400000, guid: 3f841fa3d55fe8144b9060093887456a, type: 2}
   - {fileID: 11400000, guid: 2731dd2e26b16644a818148556077578, type: 2}
   effectValue:

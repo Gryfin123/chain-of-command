@@ -6,7 +6,7 @@ using UnityEngine;
 
 // This class works like enum. 
 // It is used to pass values to between CommandValues and CommandEffects in CommandSO.
-[CreateAssetMenu(fileName = "EffectValue", menuName = "ScriptableObjects/CommandValue")]
+[CreateAssetMenu(fileName = "CommandValue", menuName = "ScriptableObjects/CommandValueEnum")]
 public class CommandValueEnumSO : ScriptableObject
 {
     public string valueName;

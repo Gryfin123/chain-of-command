@@ -10,25 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
-  m_Name: cmdTest
+  m_Name: cmdFlamingOn
   m_EditorClassIdentifier: 
-  commandName: Create Command
-  description: 
-  cost: 0
+  commandName: Flame On
+  description: Deal [0] damage and increase all future "Flame On" by [1] damage this
+    battle.
+  cost: 15
   tier: 0
-  tags: []
-  effectValueReferences:
+  tags:
+  - Offensive
+  - Fire
+  effectValueEnums:
   - {fileID: 11400000, guid: 3f841fa3d55fe8144b9060093887456a, type: 2}
-  - {fileID: 11400000, guid: 2731dd2e26b16644a818148556077578, type: 2}
-  - {fileID: 11400000, guid: 3f841fa3d55fe8144b9060093887456a, type: 2}
-  - {fileID: 11400000, guid: 3f841fa3d55fe8144b9060093887456a, type: 2}
+  - {fileID: 11400000, guid: e6cead491b51b9b43b746715ea55240b, type: 2}
   effectValue:
-  - 6
-  - 20
   - 2
-  - 89
+  - 3
   effects:
   - {fileID: 11400000, guid: f6bed4533ecb0554aa5a557edae68446, type: 2}
-  - {fileID: 11400000, guid: d7f39dddb1a5ece4e97eb4d357fd5565, type: 2}
-  - {fileID: 11400000, guid: f6bed4533ecb0554aa5a557edae68446, type: 2}
-  - {fileID: 11400000, guid: f6bed4533ecb0554aa5a557edae68446, type: 2}
+  - {fileID: 11400000, guid: 74c3635d33cb9e34e8f312867f722f4b, type: 2}

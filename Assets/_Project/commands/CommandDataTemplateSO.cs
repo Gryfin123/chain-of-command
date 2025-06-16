@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Command", menuName = "ScriptableObjects/Command")]
-public class CommandDataSO : ScriptableObject
+public class CommandDataTemplateSO : ScriptableObject
 {
     public string commandName;
     public string description;

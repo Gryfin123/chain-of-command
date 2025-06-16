@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
-  m_Name: cmdHealingTouch
+  m_Name: cmdPreparation
   m_EditorClassIdentifier: 
-  commandName: Healing Touch
-  description: Heals player for [0] health
+  commandName: Preparation
+  description: Next command in the chain triggers [0] extra tiime
   cost: 10
-  tier: 1
+  tier: 0
   tags:
-  - Defensive
-  - Holy
+  - Supportive
   effectValueEnums:
-  - {fileID: 11400000, guid: 2731dd2e26b16644a818148556077578, type: 2}
+  - {fileID: 11400000, guid: 0b998cbe0202fdf4e95c3b15e98d3396, type: 2}
   effectValue:
-  - 10
+  - 1
   effects:
-  - {fileID: 11400000, guid: d7f39dddb1a5ece4e97eb4d357fd5565, type: 2}
+  - {fileID: 11400000, guid: 45833b88f40f51042b10a0dcf03eba22, type: 2}
