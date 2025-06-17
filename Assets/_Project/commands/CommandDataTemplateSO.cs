@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Searcher;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Command", menuName = "ScriptableObjects/Command")]
@@ -10,11 +11,28 @@ public class CommandDataTemplateSO : ScriptableObject
     public string description;
     public int cost;
     public int tier;
-    public List<string> tags;
+    public CommandTypes commandType;
+    public Sprite banner;
+    public Sprite splashart;
+    public List<CommandTagsSO> tags;
 
     public List<CommandValueEnumSO> effectValueEnums;
     public List<float> effectValue;
     public List<BaseCommandEffectSO> effects;
+
+    public Color BannerColor
+    {
+        get
+        {
+            return commandType switch
+            {
+                CommandTypes.OFFENSIVE => Color.red,
+                CommandTypes.DEFENSIVE => Color.cyan,
+                CommandTypes.SUPPORT => Color.yellow,
+                _ => Color.white
+            };
+        }
+    }
 
     public string GetProcessedDescription()
     {

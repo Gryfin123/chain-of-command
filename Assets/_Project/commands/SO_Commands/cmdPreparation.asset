@@ -16,8 +16,10 @@ MonoBehaviour:
   description: Next command in the chain triggers [0] extra tiime
   cost: 10
   tier: 0
-  tags:
-  - Supportive
+  commandType: 2
+  banner: {fileID: -794130332, guid: 600f2c417b9bccc4ea38c2a5d2e2ab2c, type: 3}
+  splashart: {fileID: -1663276555, guid: 600f2c417b9bccc4ea38c2a5d2e2ab2c, type: 3}
+  tags: []
   effectValueEnums:
   - {fileID: 11400000, guid: 0b998cbe0202fdf4e95c3b15e98d3396, type: 2}
   effectValue:

@@ -13,9 +13,11 @@ public class CommandController : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     [SerializeField] private TextMeshProUGUI labelName;
     [SerializeField] private TextMeshProUGUI labelDescription;
-    [SerializeField] private GameObject   panelDescription;
+    [SerializeField] private GameObject panelDescription;
     [SerializeField] private TextMeshProUGUI labelCost;
-    [SerializeField] private Image imageComponent;
+    [SerializeField] private Image bannerComponent;
+    [SerializeField] private Image borderComponent;
+    [SerializeField] private Image SplashartComponent;
 
     public void Init()
     {
@@ -32,6 +34,9 @@ public class CommandController : MonoBehaviour, IPointerEnterHandler, IPointerEx
         labelName.text = data.commandName;
         labelDescription.text = data.GetProcessedDescription();
         labelCost.text = data.cost.ToString();
+        bannerComponent.sprite = data.banner;
+        borderComponent.color = data.BannerColor;
+        SplashartComponent.sprite = data.splashart;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
