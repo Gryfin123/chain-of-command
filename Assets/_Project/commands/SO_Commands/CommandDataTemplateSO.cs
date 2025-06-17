@@ -11,7 +11,7 @@ public class CommandDataTemplateSO : ScriptableObject
     public string description;
     public int cost;
     public int tier;
-    public CommandTypes commandType;
+    public CommandType commandType;
     public Sprite banner;
     public Sprite splashart;
     public List<CommandTagsSO> tags;
@@ -26,9 +26,9 @@ public class CommandDataTemplateSO : ScriptableObject
         {
             return commandType switch
             {
-                CommandTypes.OFFENSIVE => Color.red,
-                CommandTypes.DEFENSIVE => Color.cyan,
-                CommandTypes.SUPPORT => Color.yellow,
+                CommandType.OFFENSIVE => Color.red,
+                CommandType.DEFENSIVE => Color.cyan,
+                CommandType.SUPPORT => Color.yellow,
                 _ => Color.white
             };
         }
