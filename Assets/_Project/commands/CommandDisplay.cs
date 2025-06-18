@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 // Class resposible for processing command data for player to use. It is not supposed
 // to process any Effect logic. This is responsibility of CommandEffectProcessor
-public class CommandController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public CommandDataTemplateSO data;
 

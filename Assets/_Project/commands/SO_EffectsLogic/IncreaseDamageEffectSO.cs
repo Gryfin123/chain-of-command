@@ -7,9 +7,9 @@ using UnityEngine;
 public class IncreaseDamageEffectSO : BaseCommandEffectSO
 {
     [SerializeField]
-    private CommandValueEnumSO increaseDamageReference;
+    private CommandAttributeSO increaseDamageReference;
     [SerializeField]
-    private CommandValueEnumSO damageReference;
+    private CommandAttributeSO damageReference;
     public override string GetEffectSummary()
     {
         return "Increases the base damage of command";

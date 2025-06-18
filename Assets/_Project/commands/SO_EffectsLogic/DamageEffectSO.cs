@@ -7,7 +7,7 @@ using UnityEngine;
 public class DamageEffectSO : BaseCommandEffectSO
 {
     [SerializeField]
-    private CommandValueEnumSO damageReference;
+    private CommandAttributeSO damageReference;
     public override string GetEffectSummary()
     {
         return "Damages opponent for a specific amount of health";

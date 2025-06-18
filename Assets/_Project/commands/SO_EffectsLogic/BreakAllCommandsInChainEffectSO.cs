@@ -6,7 +6,7 @@ using UnityEngine;
 public class MultiplyPlayerDamageEffectSO : BaseCommandEffectSO
 {
     [SerializeField]
-    private CommandValueEnumSO multiplyDamage;
+    private CommandAttributeSO multiplyDamage;
 
     public override void Trigger(CommandEffectContext context)
     {

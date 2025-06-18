@@ -6,7 +6,7 @@ using UnityEngine;
 // requires that information (For example, CommandEffect that requires reference to influance ity)
 public class CommandEffectContext
 {
-    public CommandController SourceCommand { get; set; } // Reference to Command that triggers the effect
+    public CommandDisplay SourceCommand { get; set; } // Reference to Command that triggers the effect
     public RunDataSO RunData { get; set; } // Current playthrough information
     // public BattleController BattleData { get; set; } // Current battle information
 }

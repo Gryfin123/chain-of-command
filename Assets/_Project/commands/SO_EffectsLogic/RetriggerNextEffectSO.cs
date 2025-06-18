@@ -6,7 +6,7 @@ using UnityEngine;
 public class RetriggerNextEffectSO : BaseCommandEffectSO
 {
     [SerializeField]
-    private CommandValueEnumSO retriggerReference;
+    private CommandAttributeSO retriggerReference;
     public override string GetEffectSummary()
     {
         return "Next command will be triggered multiple times";

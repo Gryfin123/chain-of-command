@@ -6,7 +6,7 @@ using UnityEngine;
 public class HealEffectSO : BaseCommandEffectSO
 {
     [SerializeField]
-    private CommandValueEnumSO healReference;
+    private CommandAttributeSO healReference;
     public override string GetEffectSummary()
     {
         return $"Restores health to the player";

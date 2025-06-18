@@ -16,7 +16,7 @@ public class CommandDataTemplateSO : ScriptableObject
     public Sprite splashart;
     public List<CommandTagsSO> tags;
 
-    public List<CommandValueEnumSO> effectValueEnums;
+    public List<CommandAttributeSO> effectAttributes;
     public List<float> effectValue;
     public List<BaseCommandEffectSO> effects;
 
@@ -36,9 +36,10 @@ public class CommandDataTemplateSO : ScriptableObject
 
     public string GetProcessedDescription()
     {
+        Debug.Log("Start Triggered " + effectAttributes.Count);
         string processedDescription = description;
 
-        for (int i = 0; i < effectValueEnums.Count; i++)
+        for (int i = 0; i < effectAttributes.Count; i++)
         {
             processedDescription = processedDescription.Replace($"[{i}]", $"{effectValue[i]}");
             Debug.Log($"{commandName} - description iteration {i + 1}. Current Description: {processedDescription}");
@@ -47,11 +48,11 @@ public class CommandDataTemplateSO : ScriptableObject
         return processedDescription;
     }
 
-    public float GetEffectValueByReference(CommandValueEnumSO reference)
+    public float GetEffectValueByReference(CommandAttributeSO reference)
     {
-        for(int i = 0; i < effectValueEnums.Count; i++)
+        for(int i = 0; i < effectAttributes.Count; i++)
         {
-            if (effectValueEnums[i] == reference)
+            if (effectAttributes[i] == reference)
             {
                 return effectValue[i];
             }
