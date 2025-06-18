@@ -20,7 +20,7 @@ MonoBehaviour:
   banner: {fileID: -794130332, guid: 600f2c417b9bccc4ea38c2a5d2e2ab2c, type: 3}
   splashart: {fileID: -1663276555, guid: 600f2c417b9bccc4ea38c2a5d2e2ab2c, type: 3}
   tags: []
-  effectValueEnums:
+  effectAttributes:
   - {fileID: 11400000, guid: 0b998cbe0202fdf4e95c3b15e98d3396, type: 2}
   effectValue:
   - 1

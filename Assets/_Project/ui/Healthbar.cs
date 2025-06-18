@@ -7,20 +7,9 @@ using UnityEngine.UI;
 public class Healthbar : MonoBehaviour
 {
     [SerializeField] OpponentDataSO source1;
-    [SerializeField] RunDataSO source2;
+    [SerializeField] PlayerProfileSO source2;
     [SerializeField] Slider healthSlider;
 
-    private void Start()
-    {
-        if (source1 != null)
-        {
-            source1.Init();
-        }
-        if (source2 != null)
-        {
-            source2.Init();
-        }
-    }
     public void SetMaxHealth(float newMaxHealth)
     {
         healthSlider.maxValue = newMaxHealth;

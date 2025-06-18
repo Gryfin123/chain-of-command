@@ -5,11 +5,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// Class resposible for processing command data for player to use. It is not supposed
-// to process any Effect logic. This is responsibility of CommandEffectProcessor
+/// <summary>
+/// Class resposible for processing command data for player to use. It is not supposed
+/// to process any Effect logic. This is responsibility of CommandEffectProcessor
+/// </summary>
 public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public CommandDataTemplateSO data;
+    public Command data;
 
     [SerializeField] private TextMeshProUGUI labelName;
     [SerializeField] private TextMeshProUGUI labelDescription;
@@ -18,11 +20,6 @@ public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField] private Image bannerComponent;
     [SerializeField] private Image borderComponent;
     [SerializeField] private Image SplashartComponent;
-
-    public void Init()
-    {
-
-    }
 
     private void Start()
     {

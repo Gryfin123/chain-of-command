@@ -22,7 +22,7 @@ MonoBehaviour:
   splashart: {fileID: 1109455886, guid: 7affd489852c8d64aaf18e62bddb183a, type: 3}
   tags:
   - {fileID: 11400000, guid: f34c13c965109154eb2cdfd75180d7c4, type: 2}
-  effectValueEnums:
+  effectAttributes:
   - {fileID: 11400000, guid: 5a7bf75ed13faeb4784e50a32c7deccc, type: 2}
   effectValue:
   - 2

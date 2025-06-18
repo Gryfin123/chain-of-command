@@ -22,7 +22,7 @@ MonoBehaviour:
   tags:
   - {fileID: 11400000, guid: e34b9a7d74f952d41a8655ad0ed5e03e, type: 2}
   - {fileID: 11400000, guid: 247e774fb68150b4d9cbbe2b7878d284, type: 2}
-  effectValueEnums:
+  effectAttributes:
   - {fileID: 11400000, guid: 3f841fa3d55fe8144b9060093887456a, type: 2}
   effectValue:
   - 10

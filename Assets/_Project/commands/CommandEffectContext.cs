@@ -7,6 +7,6 @@ using UnityEngine;
 public class CommandEffectContext
 {
     public CommandDisplay SourceCommand { get; set; } // Reference to Command that triggers the effect
-    public RunDataSO RunData { get; set; } // Current playthrough information
+    //public RunDataSO RunData { get; set; } // Current playthrough information
     // public BattleController BattleData { get; set; } // Current battle information
 }
