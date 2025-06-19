@@ -15,7 +15,7 @@ public class Command
     public string description;
     public int cost;
     public int tier;
-    public CommandType commandType;
+    public CommandTypeSO commandType;
     public Sprite banner;
     public Sprite splashart;
     public List<CommandTagsSO> tags;
@@ -30,13 +30,7 @@ public class Command
     {
         get
         {
-            return commandType switch
-            {
-                CommandType.OFFENSIVE => Color.red,
-                CommandType.DEFENSIVE => Color.cyan,
-                CommandType.SUPPORT => Color.yellow,
-                _ => Color.white
-            };
+            return commandType.associatedColor;
         }
     }
 
@@ -69,7 +63,6 @@ public class Command
         for (int i = 0; i < effectAttributes.Count; i++)
         {
             processedDescription = processedDescription.Replace($"[{i}]", $"{effectValue[i]}");
-            Debug.Log($"{commandName} - description iteration {i + 1}. Current Description: {processedDescription}");
         }
 
         return processedDescription;

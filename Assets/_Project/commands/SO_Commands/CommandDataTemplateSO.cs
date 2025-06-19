@@ -11,7 +11,7 @@ public class CommandDataTemplateSO : ScriptableObject
     public string description;
     public int cost;
     public int tier;
-    public CommandType commandType;
+    public CommandTypeSO commandType;
     public Sprite banner;
     public Sprite splashart;
     public List<CommandTagsSO> tags;

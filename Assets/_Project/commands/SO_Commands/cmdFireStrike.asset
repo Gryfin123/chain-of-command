@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Deals [0] damage to the enemy
   cost: 10
   tier: 1
-  commandType: 0
+  commandType: {fileID: 11400000, guid: a068aaccb0a929d48afbf4b2ba08ac5e, type: 2}
   banner: {fileID: -1707415633, guid: 36f087f6ef181444a9459b20927abb69, type: 3}
   splashart: {fileID: -1543503547, guid: 36f087f6ef181444a9459b20927abb69, type: 3}
   tags:

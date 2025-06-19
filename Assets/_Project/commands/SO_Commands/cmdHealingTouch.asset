@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Heals player for [0] health
   cost: 10
   tier: 1
-  commandType: 1
+  commandType: {fileID: 11400000, guid: e257f03c18f4105468a15689945c5a6c, type: 2}
   banner: {fileID: 2063374565, guid: 5ef6b0620de8dd447abbeacd9f918bc0, type: 3}
   splashart: {fileID: 957089513, guid: 5ef6b0620de8dd447abbeacd9f918bc0, type: 3}
   tags:

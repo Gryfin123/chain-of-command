@@ -17,7 +17,7 @@ MonoBehaviour:
     after executiuon is finished.
   cost: 50
   tier: 0
-  commandType: 2
+  commandType: {fileID: 11400000, guid: 811a9920ba00ab0479bbfcf03f8d09da, type: 2}
   banner: {fileID: -1872121982, guid: 7affd489852c8d64aaf18e62bddb183a, type: 3}
   splashart: {fileID: 1109455886, guid: 7affd489852c8d64aaf18e62bddb183a, type: 3}
   tags:

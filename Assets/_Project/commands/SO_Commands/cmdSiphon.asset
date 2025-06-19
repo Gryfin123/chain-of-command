@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Deal [0] damage and heal for [1] health
   cost: 20
   tier: 1
-  commandType: 0
+  commandType: {fileID: 11400000, guid: a068aaccb0a929d48afbf4b2ba08ac5e, type: 2}
   banner: {fileID: 1453736549, guid: cbf38d13ac424104e988f7dffe463c7c, type: 3}
   splashart: {fileID: -85612288, guid: cbf38d13ac424104e988f7dffe463c7c, type: 3}
   tags:

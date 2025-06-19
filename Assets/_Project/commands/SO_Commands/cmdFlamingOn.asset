@@ -17,7 +17,7 @@ MonoBehaviour:
     battle.
   cost: 15
   tier: 0
-  commandType: 0
+  commandType: {fileID: 11400000, guid: a068aaccb0a929d48afbf4b2ba08ac5e, type: 2}
   banner: {fileID: -1608403122, guid: 5cae2361201278942a654ffb12a27ad3, type: 3}
   splashart: {fileID: 1095112695, guid: 5cae2361201278942a654ffb12a27ad3, type: 3}
   tags:
