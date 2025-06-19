@@ -57,7 +57,6 @@ public class Command
 
     public string GetProcessedDescription()
     {
-        Debug.Log("Start Triggered " + effectAttributes.Count);
         string processedDescription = description;
 
         for (int i = 0; i < effectAttributes.Count; i++)
