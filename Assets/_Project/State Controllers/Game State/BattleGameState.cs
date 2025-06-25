@@ -10,8 +10,8 @@ public class BattleGameState : BaseGameState
     {
         switch (instruction.ToLower())
         {
-            case "toexploration":
-                _ctx.CurrGameState = _ctx.explorationGameState;
+            case "battlewon":
+                _ctx.CurrGameState = _ctx.battleRewardGameState;
                 break;
             default:
                 Debug.Log("Undetermined instruction received: " + instruction);

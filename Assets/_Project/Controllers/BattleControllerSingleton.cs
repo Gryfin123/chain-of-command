@@ -34,8 +34,8 @@ public class BattleControllerSingleton : MonoBehaviour
     [SerializeField] private GameObject _chainDisplay;
 
     [SerializeField] private GameObject _commandPrefab;
-    [SerializeField] private List<GameObject> _playerStorageSlots;
-    [SerializeField] private List<GameObject> _playerChainSlots;
+    [SerializeField] private List<CommandSlot> _playerStorageSlots;
+    [SerializeField] private List<CommandSlot> _playerChainSlots;
 
 
     public void InitiateBattle()
@@ -63,10 +63,7 @@ public class BattleControllerSingleton : MonoBehaviour
         // Remove Command Prefabs From Storage Slots.
         foreach (var slot in _playerStorageSlots)
         {
-            while (slot.transform.childCount > 0)
-            {
-                DestroyImmediate(slot.transform.GetChild(0).gameObject);
-            }
+            slot.RemoveCommand();
         }
 
         // Load data from Player Profiole into Storage Display
@@ -78,25 +75,14 @@ public class BattleControllerSingleton : MonoBehaviour
                 break;
             }
 
-            Vector3 spawnLocation = new Vector3(
-                _playerStorageSlots[i].transform.localPosition.x,
-                _playerStorageSlots[i].transform.localPosition.y,
-                _playerStorageSlots[i].transform.localPosition.z);
-
-            GameObject instPrefab = Instantiate(_commandPrefab, spawnLocation, Quaternion.identity);
-            instPrefab.GetComponent<CommandDisplay>().data = _playerProfile.CommandList[i];
-            instPrefab.transform.SetParent(_playerStorageSlots[i].transform);
-            instPrefab.transform.localScale = new Vector3(1,1,1);
+            _playerStorageSlots[i].InsertCommand(_commandPrefab, _playerProfile.CommandList[i]);
         }
 
 
         // Remove Command Prefabs From Chain Slots.
         foreach (var slot in _playerChainSlots)
         {
-            while (slot.transform.childCount > 0)
-            {
-                DestroyImmediate(slot.transform.GetChild(0).gameObject);
-            }
+            slot.RemoveCommand();
         }
     }
 

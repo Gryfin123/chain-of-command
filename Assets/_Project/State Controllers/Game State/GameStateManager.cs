@@ -7,13 +7,18 @@ using UnityEngine;
 /// </summary>
 public class GameStateManager : MonoBehaviour
 {
+    // States
     private BaseGameState currGameState;
 
     public MainMenuGameState mainMenuGameState;
     public StartingRunGameState startingRunGameState;
     public ExplorationGameState explorationGameState;
     public BattleGameState battleGameState;
+    public BattleRewardGameState battleRewardGameState;
     public EventsGameState eventsGameState;
+
+    // Other Data
+    public PlayerProfileSO playerProfileSO;
 
     public BaseGameState CurrGameState
     {
@@ -35,6 +40,7 @@ public class GameStateManager : MonoBehaviour
         startingRunGameState = new StartingRunGameState(this);
         explorationGameState = new ExplorationGameState(this);
         battleGameState = new BattleGameState(this);
+        battleRewardGameState = new BattleRewardGameState(this);
         eventsGameState = new EventsGameState(this);
 
         CurrGameState = mainMenuGameState;

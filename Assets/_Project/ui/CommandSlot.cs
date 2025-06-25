@@ -14,4 +14,33 @@ public class CommandSlot : MonoBehaviour, IDropHandler
             draggableItem.parentAfterDrag = transform;
         }
     }
+
+    /// <summary>
+    /// Adds Command Game object to the slot
+    /// </summary>
+    /// <param name="_commandPrefab">Command Prefab</param>
+    /// <param name="command">Command data (Not CommandTemplateSO)</param>
+    public void InsertCommand(GameObject _commandPrefab, Command command)
+    {
+        Vector3 spawnLocation = new Vector3(
+            transform.localPosition.x,
+            transform.localPosition.y,
+            transform.localPosition.z);
+
+        GameObject instPrefab = Instantiate(_commandPrefab, spawnLocation, Quaternion.identity);
+        instPrefab.GetComponent<CommandDisplay>().data = command;
+        instPrefab.transform.SetParent(transform);
+        instPrefab.transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    /// <summary>
+    /// Removes a command game object from the slot (and any other game object that may show up there. There should be only one anyway)
+    /// </summary>
+    public void RemoveCommand()
+    {
+        while (transform.childCount > 0)
+        {
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
+    }
 }
