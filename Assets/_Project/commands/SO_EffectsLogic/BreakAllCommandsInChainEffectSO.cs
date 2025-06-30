@@ -10,7 +10,7 @@ public class MultiplyPlayerDamageEffectSO : BaseCommandEffectSO
 
     public override void Trigger(CommandEffectContext context)
     {
-        float multiplierValue = context.SourceCommand.data.GetEffectValueByReference(multiplyDamage);
+        float multiplierValue = context.SourceCommand.data.properties[CommandPropertyID.DAMAGE].Multiplier;
         string nameValue = context.SourceCommand.data.commandName;
 
         Debug.Log($"Command {nameValue} has triggered and increased all damage dealt by player by facto of {multiplierValue}");

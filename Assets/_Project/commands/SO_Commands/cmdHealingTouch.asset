@@ -12,18 +12,109 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
   m_Name: cmdHealingTouch
   m_EditorClassIdentifier: 
-  commandName: Healing Touch
-  description: Heals player for [0] health
-  cost: 10
-  tier: 1
-  commandType: {fileID: 11400000, guid: e257f03c18f4105468a15689945c5a6c, type: 2}
   banner: {fileID: 2063374565, guid: 5ef6b0620de8dd447abbeacd9f918bc0, type: 3}
   splashart: {fileID: 957089513, guid: 5ef6b0620de8dd447abbeacd9f918bc0, type: 3}
+  commandName: Healing Touch
+  description: Heals player for [healing] health
+  tier: 1
+  commandType: {fileID: 11400000, guid: e257f03c18f4105468a15689945c5a6c, type: 2}
   tags:
   - {fileID: 11400000, guid: 71c57d60a25b3ae43bbb7ce8d16de925, type: 2}
-  effectAttributes:
-  - {fileID: 11400000, guid: 2731dd2e26b16644a818148556077578, type: 2}
-  effectValue:
-  - 10
   effects:
   - {fileID: 11400000, guid: d7f39dddb1a5ece4e97eb4d357fd5565, type: 2}
+  cost:
+    _base: 10
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  damage:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  healing:
+    _base: 10
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  barrier:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  retrigger:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  poison:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  vulnerabilty:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  weakness:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  cost_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  damage_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  healing_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  barrier_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  retrigger_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  poison_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  vulnerabilty_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  weakness_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1

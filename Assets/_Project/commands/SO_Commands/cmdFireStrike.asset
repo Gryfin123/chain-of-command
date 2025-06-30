@@ -12,19 +12,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
   m_Name: cmdFireStrike
   m_EditorClassIdentifier: 
-  commandName: Fire Strike
-  description: Deals [0] damage to the enemy
-  cost: 10
-  tier: 1
-  commandType: {fileID: 11400000, guid: a068aaccb0a929d48afbf4b2ba08ac5e, type: 2}
   banner: {fileID: -1707415633, guid: 36f087f6ef181444a9459b20927abb69, type: 3}
   splashart: {fileID: -1543503547, guid: 36f087f6ef181444a9459b20927abb69, type: 3}
+  commandName: Fire Strike
+  description: Deals [damage] damage to the enemy
+  tier: 1
+  commandType: {fileID: 11400000, guid: a068aaccb0a929d48afbf4b2ba08ac5e, type: 2}
   tags:
   - {fileID: 11400000, guid: e34b9a7d74f952d41a8655ad0ed5e03e, type: 2}
   - {fileID: 11400000, guid: 247e774fb68150b4d9cbbe2b7878d284, type: 2}
-  effectAttributes:
-  - {fileID: 11400000, guid: 3f841fa3d55fe8144b9060093887456a, type: 2}
-  effectValue:
-  - 10
+  cost:
+    _base: 10
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  damage:
+    _base: 10
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  healing:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  barrier:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  retrigger:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  poison:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  vulnerabilty:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  weakness:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
   effects:
   - {fileID: 11400000, guid: f6bed4533ecb0554aa5a557edae68446, type: 2}

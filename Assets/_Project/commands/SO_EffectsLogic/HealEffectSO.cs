@@ -14,7 +14,7 @@ public class HealEffectSO : BaseCommandEffectSO
 
     public override void Trigger(CommandEffectContext context)
     {
-        float healValue = context.SourceCommand.data.GetEffectValueByReference(healReference);
+        float healValue = context.SourceCommand.data.properties[CommandPropertyID.HEALING].EffectiveValue;
         string nameValue = context.SourceCommand.data.commandName;
         Debug.Log($"Command {nameValue} has triggered and healed player for {healValue} points");
     }

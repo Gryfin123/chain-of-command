@@ -12,20 +12,111 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
   m_Name: cmdEventHorizon
   m_EditorClassIdentifier: 
-  commandName: Event Horizon
-  description: Player deals [0]x times more damage this execution. Break all commands
-    after executiuon is finished.
-  cost: 50
-  tier: 0
-  commandType: {fileID: 11400000, guid: 811a9920ba00ab0479bbfcf03f8d09da, type: 2}
   banner: {fileID: -1872121982, guid: 7affd489852c8d64aaf18e62bddb183a, type: 3}
   splashart: {fileID: 1109455886, guid: 7affd489852c8d64aaf18e62bddb183a, type: 3}
+  commandName: Event Horizon
+  description: Player deals [damage_adj]x times more damage this execution. Break
+    all commands after executiuon is finished.
+  tier: 0
+  commandType: {fileID: 11400000, guid: 811a9920ba00ab0479bbfcf03f8d09da, type: 2}
   tags:
   - {fileID: 11400000, guid: f34c13c965109154eb2cdfd75180d7c4, type: 2}
-  effectAttributes:
-  - {fileID: 11400000, guid: 5a7bf75ed13faeb4784e50a32c7deccc, type: 2}
-  effectValue:
-  - 2
   effects:
   - {fileID: 11400000, guid: 58dca51fe9511c744877d6162a453c6c, type: 2}
   - {fileID: 11400000, guid: 3a82df972f6a7ad448e60b471cfcf091, type: 2}
+  cost:
+    _base: 50
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  damage:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  healing:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  barrier:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  retrigger:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  poison:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  vulnerabilty:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  weakness:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  cost_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  damage_adj:
+    _base: 50
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  healing_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  barrier_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  retrigger_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  poison_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  vulnerabilty_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  weakness_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1

@@ -17,9 +17,9 @@ public class IncreaseDamageEffectSO : BaseCommandEffectSO
 
     public override void Trigger(CommandEffectContext context)
     {
-        float damageValue = context.SourceCommand.data.GetEffectValueByReference(damageReference);
+        float damageValue = context.SourceCommand.data.properties[CommandPropertyID.DAMAGE].EffectiveValue;
         float old = damageValue;
-        float increaseDamageValue = context.SourceCommand.data.GetEffectValueByReference(increaseDamageReference);
+        float increaseDamageValue = context.SourceCommand.data.properties[CommandPropertyID.DAMAGE].Modifier;
         string nameValue = context.SourceCommand.data.commandName;
 
         damageValue += increaseDamageValue;

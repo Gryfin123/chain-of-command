@@ -37,7 +37,7 @@ public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         labelName.text = data.commandName;
         labelDescription.text = data.GetProcessedDescription();
-        labelCost.text = data.cost.ToString();
+        labelCost.text = data.properties[CommandPropertyID.COST].ToString();
         bannerComponent.sprite = data.banner;
         borderComponent.color = data.BannerColor;
         SplashartComponent.sprite = data.splashart;

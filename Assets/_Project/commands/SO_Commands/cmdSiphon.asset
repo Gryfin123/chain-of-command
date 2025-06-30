@@ -12,21 +12,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
   m_Name: cmdSiphon
   m_EditorClassIdentifier: 
-  commandName: Siphon
-  description: Deal [0] damage and heal for [1] health
-  cost: 20
-  tier: 1
-  commandType: {fileID: 11400000, guid: a068aaccb0a929d48afbf4b2ba08ac5e, type: 2}
   banner: {fileID: 1453736549, guid: cbf38d13ac424104e988f7dffe463c7c, type: 3}
   splashart: {fileID: -85612288, guid: cbf38d13ac424104e988f7dffe463c7c, type: 3}
+  commandName: Siphon
+  description: Deal [damage] damage and heal for [healing] health
+  tier: 1
+  commandType: {fileID: 11400000, guid: a068aaccb0a929d48afbf4b2ba08ac5e, type: 2}
   tags:
   - {fileID: 11400000, guid: f34c13c965109154eb2cdfd75180d7c4, type: 2}
-  effectAttributes:
-  - {fileID: 11400000, guid: 3f841fa3d55fe8144b9060093887456a, type: 2}
-  - {fileID: 11400000, guid: 2731dd2e26b16644a818148556077578, type: 2}
-  effectValue:
-  - 8
-  - 8
   effects:
   - {fileID: 11400000, guid: f6bed4533ecb0554aa5a557edae68446, type: 2}
   - {fileID: 11400000, guid: d7f39dddb1a5ece4e97eb4d357fd5565, type: 2}
+  cost:
+    _base: 15
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  damage:
+    _base: 10
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  healing:
+    _base: 10
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  barrier:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  retrigger:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  poison:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  vulnerabilty:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  weakness:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  cost_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  damage_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  healing_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  barrier_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  retrigger_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  poison_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  vulnerabilty_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  weakness_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1

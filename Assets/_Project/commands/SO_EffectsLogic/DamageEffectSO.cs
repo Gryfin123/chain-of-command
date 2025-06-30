@@ -15,7 +15,7 @@ public class DamageEffectSO : BaseCommandEffectSO
 
     public override void Trigger(CommandEffectContext context)
     {
-        float damageValue = context.SourceCommand.data.GetEffectValueByReference(damageReference);
+        float damageValue = context.SourceCommand.data.properties[CommandPropertyID.DAMAGE].EffectiveValue;
         string nameValue = context.SourceCommand.data.commandName;
         Debug.Log($"Command {nameValue} has triggered and dealth {damageValue} damage to the target");
     }
