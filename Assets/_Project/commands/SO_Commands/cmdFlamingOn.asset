@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d9ba4e870b0f164286d1f6180aae17e, type: 3}
   m_Name: cmdFlamingOn
   m_EditorClassIdentifier: 
   banner: {fileID: -1608403122, guid: 5cae2361201278942a654ffb12a27ad3, type: 3}

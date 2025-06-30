@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 817669b0bead82b4e800dd7752e0e8cd, type: 3}
   m_Name: cmdHealingTouch
   m_EditorClassIdentifier: 
   banner: {fileID: 2063374565, guid: 5ef6b0620de8dd447abbeacd9f918bc0, type: 3}

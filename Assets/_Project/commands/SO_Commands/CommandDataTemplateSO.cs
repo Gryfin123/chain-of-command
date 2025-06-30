@@ -6,7 +6,7 @@ using UnityEditor.Searcher;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Command", menuName = "ScriptableObjects/Command")]
-public class CommandDataTemplateSO : ScriptableObject
+public abstract class CommandDataTemplateSO : ScriptableObject
 {
     public Sprite banner;
     public Sprite splashart;
@@ -16,7 +16,6 @@ public class CommandDataTemplateSO : ScriptableObject
 
     public CommandTypeSO commandType;
     public List<CommandTagsSO> tags;
-    public List<BaseCommandEffectSO> effects;
 
     [Header("Default Properties")]
     public CommandProperty cost;
@@ -39,4 +38,53 @@ public class CommandDataTemplateSO : ScriptableObject
     public CommandProperty poison_adj;
     public CommandProperty vulnerabilty_adj;
     public CommandProperty weakness_adj;
+
+    public abstract void TriggerCommand(CommandEffectContext context);
+
+
+    // ======= Common Private Fucntions used in Command Effects ======== //
+    protected void ApplyDamage(CommandEffectContext context, CommandTarget target)
+    {
+        Debug.Log($"Command {this.GetType().Name} has triggered and dealt {damage.EffectiveValue} damage to {target}.");
+    }
+    protected void ApplyHealing(CommandEffectContext context, CommandTarget target)
+    {
+        Debug.Log($"Command {this.GetType().Name} has triggered and healed {target}, by {healing.EffectiveValue}.");
+    }
+
+
+    protected void IncreaseCommandDamage(CommandEffectContext context, Command target)
+    {
+        target.properties[CommandPropertyID.DAMAGE].Modifier += damage_adj.EffectiveValue;
+        Debug.Log($"Command {this.GetType().Name} has triggered and permanently increased {target.commandName} by {damage_adj.EffectiveValue}. {target.commandName} now deals {target.properties[CommandPropertyID.DAMAGE].EffectiveValue}.");
+    }
+    protected void IncreaseCommandDamageMultiplier(CommandEffectContext context, Command target)
+    {
+        target.properties[CommandPropertyID.DAMAGE].Modifier *= damage_adj.EffectiveValue;
+        Debug.Log($"Command {this.GetType().Name} has triggered and permanently increased {target.commandName} times {damage_adj.EffectiveValue}. {target.commandName} now deals {target.properties[CommandPropertyID.DAMAGE].EffectiveValue}.");
+    }
+    protected void IncreaseCommandRetrigger(CommandEffectContext context, Command target)
+    {
+        target.properties[CommandPropertyID.RETRIGGER].Modifier += retrigger_adj.EffectiveValue;
+        Debug.Log($"Command {this.GetType().Name} has triggered and permanently increased {target.commandName} retrigger to {retrigger_adj.EffectiveValue}. {target.commandName} now triggers {target.properties[CommandPropertyID.RETRIGGER].EffectiveValue} times.");
+    }
+
+    protected void BreakCommand(CommandEffectContext context, Command target)
+    {
+        target.broken = true;
+    }
+
+
+    protected void ApplyBuff(CommandEffectContext context, string buff)
+    {
+        Debug.Log($"Command {this.GetType().Name} has triggered and applied a buff: {buff}.");
+    }
+}
+
+
+// ======== Other Used Classses / Enums / Etc. ======== //
+public enum CommandTarget
+{
+    PLAYER,
+    OPPONENT
 }

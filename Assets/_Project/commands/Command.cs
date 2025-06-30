@@ -21,7 +21,6 @@ public class Command
 
     public CommandTypeSO commandType;
     public List<CommandTagsSO> tags = new List<CommandTagsSO>();
-    public List<BaseCommandEffectSO> effects = new List<BaseCommandEffectSO> ();
 
     public Dictionary<CommandPropertyID, CommandProperty> properties = new Dictionary<CommandPropertyID, CommandProperty>();
 
@@ -50,7 +49,6 @@ public class Command
 
         commandType = _dataSource.commandType;
         tags = new List<CommandTagsSO>(_dataSource.tags);
-        effects = new List<BaseCommandEffectSO>(_dataSource.effects);
 
         properties.Add(CommandPropertyID.COST, _dataSource.cost);
         properties.Add(CommandPropertyID.DAMAGE, _dataSource.damage);

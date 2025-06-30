@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
+  m_Script: {fileID: 11500000, guid: d651b2ce1777f544882017241ac3bf3a, type: 3}
   m_Name: cmdPreparation
   m_EditorClassIdentifier: 
   banner: {fileID: -794130332, guid: 600f2c417b9bccc4ea38c2a5d2e2ab2c, type: 3}
@@ -46,7 +46,7 @@ MonoBehaviour:
     _override: -1
     _overrideBase: -1
   retrigger:
-    _base: 1
+    _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
@@ -94,7 +94,7 @@ MonoBehaviour:
     _override: -1
     _overrideBase: -1
   retrigger_adj:
-    _base: 0
+    _base: 1
     _modifier: 0
     _multiplier: 1
     _override: -1

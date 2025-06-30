@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267da4e09b0b2854c99158b6e39e60a8, type: 3}
+  m_Script: {fileID: 11500000, guid: b903c66b65674ad4f8a050ca1a0cc91f, type: 3}
   m_Name: cmdFireStrike
   m_EditorClassIdentifier: 
   banner: {fileID: -1707415633, guid: 36f087f6ef181444a9459b20927abb69, type: 3}
@@ -21,6 +21,8 @@ MonoBehaviour:
   tags:
   - {fileID: 11400000, guid: e34b9a7d74f952d41a8655ad0ed5e03e, type: 2}
   - {fileID: 11400000, guid: 247e774fb68150b4d9cbbe2b7878d284, type: 2}
+  effects:
+  - {fileID: 11400000, guid: f6bed4533ecb0554aa5a557edae68446, type: 2}
   cost:
     _base: 10
     _modifier: 0
@@ -69,5 +71,51 @@ MonoBehaviour:
     _multiplier: 1
     _override: -1
     _overrideBase: -1
-  effects:
-  - {fileID: 11400000, guid: f6bed4533ecb0554aa5a557edae68446, type: 2}
+  cost_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  damage_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  healing_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  barrier_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  retrigger_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  poison_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  vulnerabilty_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
+  weakness_adj:
+    _base: 0
+    _modifier: 0
+    _multiplier: 1
+    _override: -1
+    _overrideBase: -1
