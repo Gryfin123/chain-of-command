@@ -15,16 +15,12 @@ MonoBehaviour:
   banner: {fileID: -1608403122, guid: 5cae2361201278942a654ffb12a27ad3, type: 3}
   splashart: {fileID: 1095112695, guid: 5cae2361201278942a654ffb12a27ad3, type: 3}
   commandName: Flame On
-  description: Deal [damage] damage and increase all future "Flame On" by [damage_adj]
-    damage this battle.
+  description: Deal [damage] damage and increase this damage by [damage_adj] damage.
   tier: 0
   commandType: {fileID: 11400000, guid: a068aaccb0a929d48afbf4b2ba08ac5e, type: 2}
   tags:
   - {fileID: 11400000, guid: e34b9a7d74f952d41a8655ad0ed5e03e, type: 2}
   - {fileID: 11400000, guid: a451112d4836d894f8b703125edd41aa, type: 2}
-  effects:
-  - {fileID: 11400000, guid: f6bed4533ecb0554aa5a557edae68446, type: 2}
-  - {fileID: 11400000, guid: 74c3635d33cb9e34e8f312867f722f4b, type: 2}
   cost:
     _base: 15
     _modifier: 0

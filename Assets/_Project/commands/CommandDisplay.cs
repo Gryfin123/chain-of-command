@@ -37,7 +37,7 @@ public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         labelName.text = data.commandName;
         labelDescription.text = data.GetProcessedDescription();
-        labelCost.text = data.properties[CommandPropertyID.COST].ToString();
+        labelCost.text = data.properties[CommandPropertyID.COST].EffectiveValue.ToString();
         bannerComponent.sprite = data.banner;
         borderComponent.color = data.BannerColor;
         SplashartComponent.sprite = data.splashart;
@@ -45,7 +45,6 @@ public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Mouse entered. Showing Description");
         UpdateDescriptionPosition();
         if (panelDescription != null)
         {
@@ -54,7 +53,6 @@ public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Mouse Exit. Hiding Description");
         if (panelDescription != null)
         {
             panelDescription.SetActive(false);

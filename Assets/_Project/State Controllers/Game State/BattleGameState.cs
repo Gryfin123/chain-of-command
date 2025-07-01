@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class BattleGameState : BaseGameState
 {
-    public BattleGameState(GameStateManager context) : base(context) { }
+    public BattleGameState(GameStateManager context, GameStateFactory factory) : base(context, factory) 
+    {
+        InitializeSubState();
+    }
 
     public override void RecieveInstruction(string instruction)
     {
         switch (instruction.ToLower())
         {
-            case "battlewon":
-                _ctx.CurrGameState = _ctx.battleRewardGameState;
+            case "victory":
+                SwitchState(_factory.BattleReward());
                 break;
             default:
                 Debug.Log("Undetermined instruction received: " + instruction);
@@ -32,5 +35,13 @@ public class BattleGameState : BaseGameState
 
     public override void UpdateState()
     {
+        CheckSwitchStates();
+    }
+
+    public override void CheckSwitchStates() { }
+
+    public override void InitializeSubState()
+    {
+        _currSubState = _factory.SetupPhase();
     }
 }

@@ -8,31 +8,29 @@ public class BattleRewardGameState : BaseGameState
     private Command reward2;
     private Command reward3;
 
-    public BattleRewardGameState(GameStateManager context) : base(context) { }
+    public BattleRewardGameState(GameStateManager context, GameStateFactory factory) : base(context, factory) { }
 
     public override void RecieveInstruction(string instruction)
     {
         switch(instruction.ToLower())
         {
             case "skip":
-                _ctx.CurrGameState = _ctx.explorationGameState;
                 break;
             case "reward1":
                 SelectedReward(reward1);
-                _ctx.CurrGameState = _ctx.explorationGameState;
                 break;
             case "reward2":
                 SelectedReward(reward2);
-                _ctx.CurrGameState = _ctx.explorationGameState;
                 break;
             case "reward3":
                 SelectedReward(reward3);
-                _ctx.CurrGameState = _ctx.explorationGameState;
                 break;
             default:
                 Debug.Log("Undetermined instruction received: " + instruction);
                 break;
         }
+
+        SwitchState(_factory.Exploration());
     }
 
     public override void EnterState()
@@ -60,4 +58,13 @@ public class BattleRewardGameState : BaseGameState
         _ctx.playerProfileSO.CommandList.Add(pickedReward);
     }
 
+    public override void CheckSwitchStates()
+    {
+
+    }
+
+    public override void InitializeSubState()
+    {
+
+    }
 }

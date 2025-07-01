@@ -8,51 +8,37 @@ using UnityEngine;
 public class GameStateManager : MonoBehaviour
 {
     // States
-    private BaseGameState currGameState;
+    private BaseGameState _currState;
+    private GameStateFactory _stateFactory;
 
-    public MainMenuGameState mainMenuGameState;
-    public StartingRunGameState startingRunGameState;
-    public ExplorationGameState explorationGameState;
-    public BattleGameState battleGameState;
-    public BattleRewardGameState battleRewardGameState;
-    public EventsGameState eventsGameState;
+    public BaseGameState CurrState
+    {
+        get { return _currState; }
+        set { _currState = value; }
+    }
+    public GameStateFactory StateFactory
+    {
+        get { return _stateFactory; }
+        set { _stateFactory = value; }
+    }
 
     // Other Data
     public PlayerProfileSO playerProfileSO;
 
-    public BaseGameState CurrGameState
-    {
-        get => currGameState;
-        set
-        {
-            if (currGameState != null)
-            {
-                currGameState.ExitState();
-            }
-            currGameState = value;
-            currGameState.EnterState();
-        }
-    }
-
     private void Start()
     {
-        mainMenuGameState = new MainMenuGameState(this);
-        startingRunGameState = new StartingRunGameState(this);
-        explorationGameState = new ExplorationGameState(this);
-        battleGameState = new BattleGameState(this);
-        battleRewardGameState = new BattleRewardGameState(this);
-        eventsGameState = new EventsGameState(this);
-
-        CurrGameState = mainMenuGameState;
+        _stateFactory = new GameStateFactory(this);
+        _currState = _stateFactory.MainMenu();
+        _currState.EnterState();
     }
 
     private void Update()
     {
-        CurrGameState.UpdateState();
+        CurrState?.UpdateStates();
     }
 
     public void PassInstruction(string instruction)
     {
-        CurrGameState?.RecieveInstruction(instruction);
+        CurrState?.RecieveInstruction(instruction);
     }
 }

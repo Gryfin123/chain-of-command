@@ -15,12 +15,10 @@ MonoBehaviour:
   banner: {fileID: -794130332, guid: 600f2c417b9bccc4ea38c2a5d2e2ab2c, type: 3}
   splashart: {fileID: -1663276555, guid: 600f2c417b9bccc4ea38c2a5d2e2ab2c, type: 3}
   commandName: Preparation
-  description: Next command in the chain triggers [retrigger] extra tiime
+  description: next command's retrigger by [retrigger_adj].trigger].
   tier: 0
   commandType: {fileID: 11400000, guid: 811a9920ba00ab0479bbfcf03f8d09da, type: 2}
   tags: []
-  effects:
-  - {fileID: 11400000, guid: 45833b88f40f51042b10a0dcf03eba22, type: 2}
   cost:
     _base: 20
     _modifier: 0

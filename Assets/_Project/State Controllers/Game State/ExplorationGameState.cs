@@ -6,14 +6,14 @@
 /// </summary>
 public class ExplorationGameState : BaseGameState
 {
-    public ExplorationGameState(GameStateManager context) : base(context) { }
+    public ExplorationGameState(GameStateManager context, GameStateFactory factory) : base(context, factory) { }
 
     public override void RecieveInstruction(string instruction)
     {
         switch(instruction.ToLower())
         {
             case "tobattle":
-                _ctx.CurrGameState = _ctx.battleGameState;
+                SwitchState(_factory.Battle());
                 break;
             default:
                 Debug.Log("Undetermined instruction received: " + instruction);
@@ -35,5 +35,15 @@ public class ExplorationGameState : BaseGameState
 
     public override void UpdateState()
     {
+    }
+
+    public override void CheckSwitchStates()
+    {
+
+    }
+
+    public override void InitializeSubState()
+    {
+
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class MainMenuGameState : BaseGameState
 {
-    public MainMenuGameState(GameStateManager context) : base(context) { }
+    public MainMenuGameState(GameStateManager context, GameStateFactory factory) : base(context, factory) { }
 
     public override void RecieveInstruction(string instruction)
     {
@@ -12,7 +12,7 @@ public class MainMenuGameState : BaseGameState
         {
             // Start the Run
             case "tostartingrun":
-                _ctx.CurrGameState = _ctx.startingRunGameState;
+                SwitchState(_factory.StartingRun());
                 break;
             default:
                 Debug.Log("Undetermined instruction received: " + instruction);
@@ -32,5 +32,15 @@ public class MainMenuGameState : BaseGameState
 
     public override void UpdateState()
     {
+    }
+
+    public override void CheckSwitchStates()
+    {
+
+    }
+
+    public override void InitializeSubState()
+    {
+
     }
 }

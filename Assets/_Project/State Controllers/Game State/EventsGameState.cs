@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EventsGameState : BaseGameState
 {
-    public EventsGameState(GameStateManager context) : base(context) { }
+    public EventsGameState(GameStateManager context, GameStateFactory factory) : base(context, factory) { }
 
     public override void RecieveInstruction(string instruction)
     {
@@ -22,6 +22,16 @@ public class EventsGameState : BaseGameState
     }
 
     public override void UpdateState()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void CheckSwitchStates()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void InitializeSubState()
     {
         throw new System.NotImplementedException();
     }

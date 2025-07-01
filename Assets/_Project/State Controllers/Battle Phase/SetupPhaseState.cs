@@ -1,21 +1,48 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetupPhaseState : BaseBattlePhaseState
+public class SetupPhaseState : BaseGameState
 {
-    public override void EnterState(GameStateManager context)
+    public SetupPhaseState(GameStateManager context, GameStateFactory factory) : base(context, factory)
     {
-        throw new System.NotImplementedException();
     }
 
-    public override void ExitState(GameStateManager context)
+    public override void CheckSwitchStates()
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public override void UpdateState(GameStateManager context)
+    public override void EnterState()
     {
-        throw new System.NotImplementedException();
+
+    }
+
+    public override void ExitState()
+    {
+
+    }
+
+    public override void InitializeSubState()
+    {
+
+    }
+
+    public override void RecieveInstruction(string instruction)
+    {
+        switch(instruction)
+        {
+            case "complete":
+                SwitchState(_factory.ExecutionPhase());
+                break;
+            default:
+                throw new NotImplementedException();
+        }
+    }
+
+    public override void UpdateState()
+    {
+
     }
 }

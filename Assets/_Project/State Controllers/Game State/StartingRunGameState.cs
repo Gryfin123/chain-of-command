@@ -4,7 +4,7 @@
 /// </summary>
 public class StartingRunGameState : BaseGameState
 {
-    public StartingRunGameState(GameStateManager context) : base(context) { }
+    public StartingRunGameState(GameStateManager context, GameStateFactory factory) : base(context, factory) { }
 
     public override void RecieveInstruction(string instruction)
     {
@@ -14,7 +14,7 @@ public class StartingRunGameState : BaseGameState
     {
         // Right now, just pass to next state
         RunControllerSingleton.Instance.InitializeRun();
-        _ctx.CurrGameState = _ctx.explorationGameState;
+        SwitchState(_factory.Exploration());
     }
 
     public override void ExitState()
@@ -23,5 +23,15 @@ public class StartingRunGameState : BaseGameState
 
     public override void UpdateState()
     {
+    }
+
+    public override void CheckSwitchStates()
+    {
+
+    }
+
+    public override void InitializeSubState()
+    {
+
     }
 }

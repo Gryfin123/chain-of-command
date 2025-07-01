@@ -15,15 +15,11 @@ MonoBehaviour:
   banner: {fileID: -1872121982, guid: 7affd489852c8d64aaf18e62bddb183a, type: 3}
   splashart: {fileID: 1109455886, guid: 7affd489852c8d64aaf18e62bddb183a, type: 3}
   commandName: Event Horizon
-  description: Player deals [damage_adj]x times more damage this execution. Break
-    all commands after executiuon is finished.
+  description: Next command deals [damage_adj]x times more damage. Then break.
   tier: 0
   commandType: {fileID: 11400000, guid: 811a9920ba00ab0479bbfcf03f8d09da, type: 2}
   tags:
   - {fileID: 11400000, guid: f34c13c965109154eb2cdfd75180d7c4, type: 2}
-  effects:
-  - {fileID: 11400000, guid: 58dca51fe9511c744877d6162a453c6c, type: 2}
-  - {fileID: 11400000, guid: 3a82df972f6a7ad448e60b471cfcf091, type: 2}
   cost:
     _base: 50
     _modifier: 0
