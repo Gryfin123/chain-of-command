@@ -712,16 +712,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 724057089}
-        m_TargetAssemblyTypeName: BattleController, Assembly-CSharp
-        m_MethodName: InitiateExecution
-        m_Mode: 1
+      - m_Target: {fileID: 1312744997}
+        m_TargetAssemblyTypeName: GameStateManager, Assembly-CSharp
+        m_MethodName: PassInstruction
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: execute
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &160814090
@@ -5425,6 +5425,7 @@ GameObject:
   - component: {fileID: 724057086}
   - component: {fileID: 724057089}
   - component: {fileID: 724057090}
+  - component: {fileID: 724057091}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -5551,6 +5552,19 @@ MonoBehaviour:
   - {fileID: 406193835}
   - {fileID: 616320290}
   _commandPrefab: {fileID: 5939170551384653647, guid: 23eb2dd88e1aa9b4d8f2fc0f63a17f9d, type: 3}
+--- !u!114 &724057091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724057085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570444ee8e42f6d419ad0828f873a343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _commonFlags: {fileID: 11400000, guid: 78bd68547898a2b44943f6122626ae5c, type: 2}
 --- !u!224 &737967429 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1186994588380306315, guid: a8e140377daa37041bc2bc7b66e3b248, type: 3}

@@ -1,7 +1,7 @@
 public class PreparationSO : CommandDataTemplateSO
 {
-    public override void TriggerCommand(CommandEffectContext context)
+    public override void TriggerCommand(CommandContext context)
     {
-        IncreaseCommandRetrigger(context, context.SourceCommand.data);
+        IncreaseCommandRetrigger(context, context.SourceCommand);
     }
 }

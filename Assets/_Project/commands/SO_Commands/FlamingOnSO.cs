@@ -1,8 +1,8 @@
 public class FlamingOnSO : CommandDataTemplateSO
 {
-    public override void TriggerCommand(CommandEffectContext context)
+    public override void TriggerCommand(CommandContext context)
     {
         ApplyDamage(context, CommandTarget.OPPONENT);
-        IncreaseCommandDamage(context, context.SourceCommand.data);
+        IncreaseCommandDamage(context, context.SourceCommand);
     }
 } 

@@ -6,12 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New RunData", menuName = "ScriptableObjects/Opponent Data")]
 public class OpponentDataSO : ScriptableObject
 {
-    [SerializeField] private int attack;
-    [SerializeField] private float hpMax;
-    [SerializeField] private float hpCurrent;
+    [SerializeField] private PlayerProfileSO _playerProfile;
 
-    public float HpMax { get => hpMax; private set => hpMax = value; }
-    public float HpCurrent { get => hpCurrent; private set => hpCurrent = value; }
+    [SerializeField] private int _attack;
+    [SerializeField] private float _hpMax;
+    [SerializeField] private float _hpCurrent;
+
+    public float HpMax { get => _hpMax; private set => _hpMax = value; }
+    public float HpCurrent { get => _hpCurrent; private set => _hpCurrent = value; }
 
     public void Init()
     {
@@ -26,8 +28,9 @@ public class OpponentDataSO : ScriptableObject
         HpCurrent += amount;
     }
 
-    public void Attack(float amount)
+    public void AttackPlayer()
     {
-        // Deal damage to player
+        _playerProfile.TakeDamage(_attack);
+        Debug.Log($"Player has been attacked for {_attack}! Only {_playerProfile.HpCurrent} remaining.");
     }
 }

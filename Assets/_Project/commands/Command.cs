@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static Unity.VisualScripting.Member;
 
 /// <summary>
 /// A class used as a playable implementation of CommandDataTemplateSO
@@ -50,25 +49,25 @@ public class Command
         commandType = _dataSource.commandType;
         tags = new List<CommandTagsSO>(_dataSource.tags);
 
-        properties.Add(CommandPropertyID.COST, _dataSource.cost);
-        properties.Add(CommandPropertyID.DAMAGE, _dataSource.damage);
-        properties.Add(CommandPropertyID.HEALING, _dataSource.healing);
-        properties.Add(CommandPropertyID.BARRIER, _dataSource.barrier);
-        properties.Add(CommandPropertyID.RETRIGGER, _dataSource.retrigger);
+        properties.Add(_dataSource.cost.AssociatedEnum, _dataSource.cost);
+        properties.Add(_dataSource.damage.AssociatedEnum, _dataSource.damage);
+        properties.Add(_dataSource.healing.AssociatedEnum, _dataSource.healing);
+        properties.Add(_dataSource.barrier.AssociatedEnum, _dataSource.barrier);
+        properties.Add(_dataSource.retrigger.AssociatedEnum, _dataSource.retrigger);
 
-        properties.Add(CommandPropertyID.POISON, _dataSource.poison);
-        properties.Add(CommandPropertyID.WEAKNESS, _dataSource.weakness);
-        properties.Add(CommandPropertyID.VULNERABILITY, _dataSource.vulnerabilty);
+        properties.Add(_dataSource.poison.AssociatedEnum, _dataSource.poison);
+        properties.Add(_dataSource.weakness.AssociatedEnum, _dataSource.weakness);
+        properties.Add(_dataSource.vulnerabilty.AssociatedEnum, _dataSource.vulnerabilty);
 
-        properties.Add(CommandPropertyID.COST_ADJ, _dataSource.cost_adj);
-        properties.Add(CommandPropertyID.DAMAGE_ADJ, _dataSource.damage_adj);
-        properties.Add(CommandPropertyID.HEALING_ADJ, _dataSource.healing_adj);
-        properties.Add(CommandPropertyID.BARRIER_ADJ, _dataSource.barrier_adj);
-        properties.Add(CommandPropertyID.RETRIGGER_ADJ, _dataSource.retrigger_adj);
+        properties.Add(_dataSource.cost_adj.AssociatedEnum, _dataSource.cost_adj);
+        properties.Add(_dataSource.damage_adj.AssociatedEnum, _dataSource.damage_adj);
+        properties.Add(_dataSource.healing_adj.AssociatedEnum, _dataSource.healing_adj);
+        properties.Add(_dataSource.barrier_adj.AssociatedEnum, _dataSource.barrier_adj);
+        properties.Add(_dataSource.retrigger_adj.AssociatedEnum, _dataSource.retrigger_adj);
 
-        properties.Add(CommandPropertyID.POISON_ADJ, _dataSource.poison_adj);
-        properties.Add(CommandPropertyID.WEAKNESS_ADJ, _dataSource.weakness_adj);
-        properties.Add(CommandPropertyID.VULNERABILITY_ADJ, _dataSource.vulnerabilty_adj);
+        properties.Add(_dataSource.poison_adj.AssociatedEnum, _dataSource.poison_adj);
+        properties.Add(_dataSource.weakness_adj.AssociatedEnum, _dataSource.weakness_adj);
+        properties.Add(_dataSource.vulnerabilty_adj.AssociatedEnum, _dataSource.vulnerabilty_adj);
     }
 
     public string GetProcessedDescription()
@@ -81,6 +80,11 @@ public class Command
         }
 
         return processedDescription;
+    }
+
+    public void Trigger(CommandContext context)
+    {
+        _dataSource.TriggerCommand(context);
     }
 }
 
@@ -107,6 +111,12 @@ public class CommandProperty
     [SerializeField] private int _multiplier = 1;
     [SerializeField] private int _override = -1;
     [SerializeField] private int _overrideBase = -1;
+    [SerializeField] private CommandPropertyID _associatedEnum;
+    public CommandPropertyID AssociatedEnum
+    {
+        get { return _associatedEnum; }
+        set { _associatedEnum = value; }
+    }
 
     public int Base { get => _base; set => _base = value; }
     public int Modifier { get => _modifier; set => _modifier = value; }

@@ -36,6 +36,11 @@ public class PlayerProfileSO : ScriptableObject
         hpCurrent += val;
     }
 
+    public void TakeDamage(float amount)
+    {
+        hpCurrent -= amount;
+    }
+
     public void AddCommand(Command newCommand)
     {
         // Not Implemented

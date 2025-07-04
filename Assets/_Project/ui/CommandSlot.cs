@@ -16,6 +16,22 @@ public class CommandSlot : MonoBehaviour, IDropHandler
     }
 
     /// <summary>
+    /// Returns a Command that is currently stored in the CommandSlot. If Command is not present, returns null.
+    /// </summary>
+    /// <returns>Command or null</returns>
+    public Command GetCurrentCommand()
+    {
+        if (transform.childCount > 0)
+        {
+            return transform.GetChild(0).gameObject.GetComponent<CommandDisplay>().data;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /// <summary>
     /// Adds Command Game object to the slot
     /// </summary>
     /// <param name="_commandPrefab">Command Prefab</param>

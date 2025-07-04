@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,40 +5,50 @@ using UnityEngine.UI;
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Canvas canvas;
-    private RectTransform rectTransform;
+    [SerializeField]
+    private PlaythroughCommonFlagsSO commonFlags;
 
     [HideInInspector]
     public Transform parentAfterDrag;
-    private Image image;
+
+    private RectTransform _rectTransform;
+    private Image _image;
 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
-        image.raycastTarget = false;
+        if (commonFlags.CanMoveCommandsBetweenSlots)
+        {
+            parentAfterDrag = transform.parent;
+            transform.SetParent(transform.root);
+            transform.SetAsLastSibling();
+            _image.raycastTarget = false;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if (commonFlags.CanMoveCommandsBetweenSlots)
+        {
+            _rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging Ended");
-        transform.SetParent(parentAfterDrag);
-        image.raycastTarget = true;
+        if (commonFlags.CanMoveCommandsBetweenSlots)
+        {
+            transform.SetParent(parentAfterDrag);
+            _image.raycastTarget = true;
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         canvas = GetComponentInParent<Canvas>();
-        rectTransform = GetComponent<RectTransform>();
-        image = GetComponent<Image>();
+        _rectTransform = GetComponent<RectTransform>();
+        _image = GetComponent<Image>();
     }
 
     // Update is called once per frame

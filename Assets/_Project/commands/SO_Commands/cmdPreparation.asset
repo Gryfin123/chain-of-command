@@ -15,7 +15,7 @@ MonoBehaviour:
   banner: {fileID: -794130332, guid: 600f2c417b9bccc4ea38c2a5d2e2ab2c, type: 3}
   splashart: {fileID: -1663276555, guid: 600f2c417b9bccc4ea38c2a5d2e2ab2c, type: 3}
   commandName: Preparation
-  description: next command's retrigger by [retrigger_adj].trigger].
+  description: Increase next command's retrigger by [retrigger_adj].
   tier: 0
   commandType: {fileID: 11400000, guid: 811a9920ba00ab0479bbfcf03f8d09da, type: 2}
   tags: []

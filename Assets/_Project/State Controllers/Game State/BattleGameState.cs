@@ -6,26 +6,34 @@ public class BattleGameState : BaseGameState
 {
     public BattleGameState(GameStateManager context, GameStateFactory factory) : base(context, factory) 
     {
-        InitializeSubState();
     }
 
     public override void RecieveInstruction(string instruction)
     {
+        // Check self for instruction
         switch (instruction.ToLower())
         {
             case "victory":
                 SwitchState(_factory.BattleReward());
                 break;
+            case "failure":
+                SwitchState(_factory.MainMenu());
+                break;
             default:
                 Debug.Log("Undetermined instruction received: " + instruction);
                 break;
         }
+        
+        // Check if instruction is meant for the substate.
+        _currSubState.RecieveInstruction(instruction);
     }
 
     public override void EnterState()
     {
         // Sets up UI to allow for battle
+        BattleControllerSingleton.Instance.OpponentProfile.Init();
         BattleControllerSingleton.Instance.InitiateBattle();
+        InitializeSubState();
     }
 
     public override void ExitState()
@@ -42,6 +50,7 @@ public class BattleGameState : BaseGameState
 
     public override void InitializeSubState()
     {
-        _currSubState = _factory.SetupPhase();
+        SetSubState(_factory.SetupPhase());
+        _currSubState.EnterState();
     }
 }

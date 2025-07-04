@@ -16,12 +16,12 @@ public class SetupPhaseState : BaseGameState
 
     public override void EnterState()
     {
-
+        ScriptableObjectAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = true;
     }
 
     public override void ExitState()
     {
-
+        ScriptableObjectAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = false;
     }
 
     public override void InitializeSubState()
@@ -33,7 +33,7 @@ public class SetupPhaseState : BaseGameState
     {
         switch(instruction)
         {
-            case "complete":
+            case "execute":
                 SwitchState(_factory.ExecutionPhase());
                 break;
             default:

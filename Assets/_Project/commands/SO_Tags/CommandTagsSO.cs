@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Tag", menuName = "ScriptableObjects/Tags")]
+[CreateAssetMenu(fileName = "New Tag", menuName = "ScriptableObjects/Command Tags")]
 public class CommandTagsSO : ScriptableObject
 {
     [SerializeField]

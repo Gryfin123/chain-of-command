@@ -1,0 +1,11 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = nameof(#SCRIPTNAME#), menuName = "ScriptableObjects / " + nameof(#SCRIPTNAME#))]
+public class #SCRIPTNAME# : CommandDataTemplateSO // Replace MyParentScriptableObject with your actual parent class
+{
+    // Your custom data and methods go here
+    public override void TriggerCommand(CommandEffectContext context)
+    {
+        #NOTRIM#
+    }
+}
