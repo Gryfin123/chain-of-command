@@ -36,8 +36,6 @@ public class SetupPhaseState : BaseGameState
             case "execute":
                 SwitchState(_factory.ExecutionPhase());
                 break;
-            default:
-                throw new NotImplementedException();
         }
     }
 

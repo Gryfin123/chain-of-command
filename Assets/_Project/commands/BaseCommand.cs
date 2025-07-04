@@ -50,25 +50,25 @@ public abstract class BaseCommand
         commandType = _dataSource.commandType;
         tags = new List<CommandTagsSO>(_dataSource.tags);
 
-        properties.Add(_dataSource.cost.AssociatedEnum, _dataSource.cost);
-        properties.Add(_dataSource.damage.AssociatedEnum, _dataSource.damage);
-        properties.Add(_dataSource.healing.AssociatedEnum, _dataSource.healing);
-        properties.Add(_dataSource.barrier.AssociatedEnum, _dataSource.barrier);
-        properties.Add(_dataSource.retrigger.AssociatedEnum, _dataSource.retrigger);
+        properties.Add(_dataSource.cost.AssociatedEnum, new CommandProperty(_dataSource.cost));
+        properties.Add(_dataSource.damage.AssociatedEnum, new CommandProperty(_dataSource.damage));
+        properties.Add(_dataSource.healing.AssociatedEnum, new CommandProperty(_dataSource.healing));
+        properties.Add(_dataSource.barrier.AssociatedEnum, new CommandProperty(_dataSource.barrier));
+        properties.Add(_dataSource.retrigger.AssociatedEnum, new CommandProperty(_dataSource.retrigger));
 
-        properties.Add(_dataSource.poison.AssociatedEnum, _dataSource.poison);
-        properties.Add(_dataSource.weakness.AssociatedEnum, _dataSource.weakness);
-        properties.Add(_dataSource.vulnerabilty.AssociatedEnum, _dataSource.vulnerabilty);
+        properties.Add(_dataSource.poison.AssociatedEnum, new CommandProperty(_dataSource.poison));
+        properties.Add(_dataSource.weakness.AssociatedEnum, new CommandProperty(_dataSource.weakness));
+        properties.Add(_dataSource.vulnerabilty.AssociatedEnum, new CommandProperty(_dataSource.vulnerabilty));
 
-        properties.Add(_dataSource.cost_adj.AssociatedEnum, _dataSource.cost_adj);
-        properties.Add(_dataSource.damage_adj.AssociatedEnum, _dataSource.damage_adj);
-        properties.Add(_dataSource.healing_adj.AssociatedEnum, _dataSource.healing_adj);
-        properties.Add(_dataSource.barrier_adj.AssociatedEnum, _dataSource.barrier_adj);
-        properties.Add(_dataSource.retrigger_adj.AssociatedEnum, _dataSource.retrigger_adj);
+        properties.Add(_dataSource.cost_adj.AssociatedEnum, new CommandProperty(_dataSource.cost_adj));
+        properties.Add(_dataSource.damage_adj.AssociatedEnum, new CommandProperty(_dataSource.damage_adj));
+        properties.Add(_dataSource.healing_adj.AssociatedEnum, new CommandProperty(_dataSource.healing_adj));
+        properties.Add(_dataSource.barrier_adj.AssociatedEnum, new CommandProperty(_dataSource.barrier_adj));
+        properties.Add(_dataSource.retrigger_adj.AssociatedEnum, new CommandProperty(_dataSource.retrigger_adj));
 
-        properties.Add(_dataSource.poison_adj.AssociatedEnum, _dataSource.poison_adj);
-        properties.Add(_dataSource.weakness_adj.AssociatedEnum, _dataSource.weakness_adj);
-        properties.Add(_dataSource.vulnerabilty_adj.AssociatedEnum, _dataSource.vulnerabilty_adj);
+        properties.Add(_dataSource.poison_adj.AssociatedEnum, new CommandProperty(_dataSource.poison_adj));
+        properties.Add(_dataSource.weakness_adj.AssociatedEnum, new CommandProperty(_dataSource.weakness_adj));
+        properties.Add(_dataSource.vulnerabilty_adj.AssociatedEnum, new CommandProperty(_dataSource.vulnerabilty_adj));
     }
 
     public string GetProcessedDescription()
@@ -184,6 +184,20 @@ public abstract class BaseCommand
 [Serializable]
 public class CommandProperty
 {
+    public CommandProperty() { }
+    /// <summary>
+    /// Constructor used to copy data from different property, to create seperate instance. 
+    /// </summary>
+    /// <param name="original"></param>
+    public CommandProperty(CommandProperty original)
+    {
+        _base = original._base;
+        _modifier = original._modifier;
+        _multiplier = original._multiplier;
+        _override = original._override;
+        _overrideBase = original._overrideBase;
+        _associatedEnum = original._associatedEnum;
+    }
     public int EffectiveValue 
     {
         get

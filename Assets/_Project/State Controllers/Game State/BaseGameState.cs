@@ -28,7 +28,15 @@ public abstract class BaseGameState
     protected void SwitchState(BaseGameState newState)
     {
         ExitState();
+        
+        
         _ctx.CurrState = newState;
+        if (_currSuperState != null)
+        {
+            _ctx.CurrState.SetSuperState(_currSuperState);
+        }
+
+
         _ctx.CurrState.EnterState();
     }
     protected void SetSuperState(BaseGameState newSuperState) 
