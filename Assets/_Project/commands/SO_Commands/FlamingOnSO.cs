@@ -1,6 +1,6 @@
 public class FlamingOnSO : CommandDataTemplateSO
 {
-    public override Command CreateInstanceCommand()
+    public override BaseCommand CreateInstanceCommand()
     {
         return new FlamingOn(this);
     }

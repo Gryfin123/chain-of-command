@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class EventHorizon : Command
+public class EventHorizon : BaseCommand
 {
     public EventHorizon(CommandDataTemplateSO source) : base(source)
     {
     }
 
-    public override void TriggerCommand(CommandContext context)
+    public override void Trigger(CommandContext context)
     {
         var queue = context.CurrentQueue;
         var originator = context.SourceCommand;

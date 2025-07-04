@@ -20,13 +20,13 @@ public class LoadoutSO : ScriptableObject
     public int StorageCapacity { get => storageCapacity; set => storageCapacity = value; }
     public int ChainCapacity { get => chainCapacity; private set => chainCapacity = value; }
 
-    public List<Command> GetCommandList()
+    public List<BaseCommand> GetCommandList()
     {
-        var newList = new List<Command>();
+        var newList = new List<BaseCommand>();
 
         foreach (var data in commandList)
         {
-            var newCommand = new Command(data);
+            var newCommand = data.CreateInstanceCommand();
             newList.Add(newCommand);
         }
 

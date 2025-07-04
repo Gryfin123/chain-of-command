@@ -12,7 +12,7 @@ using UnityEngine.UI;
 /// </summary>
 public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Command data;
+    public BaseCommand data;
     private Canvas canvas;
 
     [SerializeField] private TextMeshProUGUI labelName;

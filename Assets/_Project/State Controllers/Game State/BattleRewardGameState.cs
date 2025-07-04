@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BattleRewardGameState : BaseGameState
 {
-    private Command reward1;
-    private Command reward2;
-    private Command reward3;
+    private BaseCommand reward1;
+    private BaseCommand reward2;
+    private BaseCommand reward3;
 
     public BattleRewardGameState(GameStateManager context, GameStateFactory factory) : base(context, factory) { }
 
@@ -53,7 +53,7 @@ public class BattleRewardGameState : BaseGameState
     {
     }
 
-    private void SelectedReward(Command pickedReward)
+    private void SelectedReward(BaseCommand pickedReward)
     {
         _ctx.playerProfileSO.CommandList.Add(pickedReward);
     }

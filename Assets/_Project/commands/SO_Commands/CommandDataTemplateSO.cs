@@ -63,5 +63,5 @@ public abstract class CommandDataTemplateSO : ScriptableObject
         weakness_adj.AssociatedEnum = CommandPropertyID.WEAKNESS_ADJ;
     }
 
-    public abstract Command CreateInstanceCommand();
+    public abstract BaseCommand CreateInstanceCommand();
 }

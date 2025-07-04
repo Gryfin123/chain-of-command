@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class Preparation : Command
+public class Preparation : BaseCommand
 {
     public Preparation(CommandDataTemplateSO source) : base(source)
     {
     }
 
-    public override void TriggerCommand(CommandContext context)
+    public override void Trigger(CommandContext context)
     {
         var queue = context.CurrentQueue;
         var originator = context.SourceCommand;

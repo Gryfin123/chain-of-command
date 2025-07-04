@@ -1,6 +1,6 @@
 public class HealingTouchSO : CommandDataTemplateSO
 {
-    public override Command CreateInstanceCommand()
+    public override BaseCommand CreateInstanceCommand()
     {
         return new HealingTouch(this);
     }

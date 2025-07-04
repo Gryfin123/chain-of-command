@@ -19,7 +19,7 @@ public class CommandSlot : MonoBehaviour, IDropHandler
     /// Returns a Command that is currently stored in the CommandSlot. If Command is not present, returns null.
     /// </summary>
     /// <returns>Command or null</returns>
-    public Command GetCurrentCommand()
+    public BaseCommand GetCurrentCommand()
     {
         if (transform.childCount > 0)
         {
@@ -36,7 +36,7 @@ public class CommandSlot : MonoBehaviour, IDropHandler
     /// </summary>
     /// <param name="_commandPrefab">Command Prefab</param>
     /// <param name="command">Command data (Not CommandTemplateSO)</param>
-    public void InsertCommand(GameObject _commandPrefab, Command command)
+    public void InsertCommand(GameObject _commandPrefab, BaseCommand command)
     {
         Vector3 spawnLocation = new Vector3(
             transform.localPosition.x,

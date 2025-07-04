@@ -1,10 +1,10 @@
-public class HealingTouch : Command
+public class HealingTouch : BaseCommand
 {
     public HealingTouch(CommandDataTemplateSO source) : base(source)
     {
     }
 
-    public override void TriggerCommand(CommandContext context)
+    public override void Trigger(CommandContext context)
     {
         ApplyHealing(context, CommandTarget.PLAYER);
     }

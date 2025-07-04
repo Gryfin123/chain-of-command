@@ -8,7 +8,7 @@ using UnityEngine;
 public class ExecutionPhaseState : BaseGameState
 {
     private OpponentDataSO _opponent;
-    private List<Command> _copiedQueue;
+    private List<BaseCommand> _copiedQueue;
 
     public ExecutionPhaseState(GameStateManager context, GameStateFactory factory) : base(context, factory)
     {

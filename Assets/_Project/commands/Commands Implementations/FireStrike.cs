@@ -1,10 +1,10 @@
-public class FireStrike : Command
+public class FireStrike : BaseCommand
 {
     public FireStrike(CommandDataTemplateSO source) : base(source)
     {
     }
 
-    public override void TriggerCommand(CommandContext context)
+    public override void Trigger(CommandContext context)
     {
         ApplyDamage(context, CommandTarget.OPPONENT);
     }

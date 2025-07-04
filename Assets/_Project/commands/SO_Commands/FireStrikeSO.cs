@@ -1,6 +1,6 @@
 public class FireStrikeSO : CommandDataTemplateSO
 {
-    public override Command CreateInstanceCommand()
+    public override BaseCommand CreateInstanceCommand()
     {
         return new FireStrike(this);
     }

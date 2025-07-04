@@ -6,7 +6,7 @@ using UnityEngine;
 // requires that information (For example, CommandEffect that requires reference to influance it)
 public class CommandContext
 {
-    public List<Command> CurrentQueue;
-    public Command SourceCommand { get; set; } // Reference to Command that triggers the effect
+    public List<BaseCommand> CurrentQueue;
+    public BaseCommand SourceCommand { get; set; } // Reference to Command that triggers the effect
     public BaseGameState SourceGameState { get; set; } // Reference to Game State where this was activated
 }

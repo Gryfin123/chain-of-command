@@ -8,7 +8,7 @@ using UnityEngine.UIElements.Experimental;
 /// <summary>
 /// A class used as a playable implementation of CommandDataTemplateSO
 /// </summary>
-public abstract class Command
+public abstract class BaseCommand
 {
     [SerializeField]
     private CommandDataTemplateSO _dataSource;
@@ -34,7 +34,7 @@ public abstract class Command
         }
     }
 
-    public Command(CommandDataTemplateSO source)
+    public BaseCommand(CommandDataTemplateSO source)
     {
         LoadDataFromSource(source);
     }
@@ -85,7 +85,7 @@ public abstract class Command
 
 
     // ===== Function for Command Trigger Functionality ===== //
-    public abstract void TriggerCommand(CommandContext context);
+    public abstract void Trigger(CommandContext context);
     // ======= Common Private Fucntions used in Command Effects ======== //
     protected void ApplyDamage(CommandContext context, CommandTarget target)
     {
@@ -119,21 +119,21 @@ public abstract class Command
     }
 
 
-    protected void IncreaseCommandDamage(CommandContext context, Command target)
+    protected void IncreaseCommandDamage(CommandContext context, BaseCommand target)
     {
         var damage_adj = properties[CommandPropertyID.DAMAGE_ADJ];
 
         target.properties[CommandPropertyID.DAMAGE].Modifier += damage_adj.EffectiveValue;
         Debug.Log($"Command {this.GetType().Name} has triggered and permanently increased {target.commandName} by {damage_adj.EffectiveValue}. {target.commandName} now deals {target.properties[CommandPropertyID.DAMAGE].EffectiveValue}.");
     }
-    protected void IncreaseCommandDamageMultiplier(CommandContext context, Command target)
+    protected void IncreaseCommandDamageMultiplier(CommandContext context, BaseCommand target)
     {
         var damage_adj = properties[CommandPropertyID.DAMAGE_ADJ];
 
         target.properties[CommandPropertyID.DAMAGE].Modifier *= damage_adj.EffectiveValue;
         Debug.Log($"Command {this.GetType().Name} has triggered and permanently increased {target.commandName} times {damage_adj.EffectiveValue}. {target.commandName} now deals {target.properties[CommandPropertyID.DAMAGE].EffectiveValue}.");
     }
-    protected void IncreaseCommandRetrigger(CommandContext context, Command target)
+    protected void IncreaseCommandRetrigger(CommandContext context, BaseCommand target)
     {
         var retrigger_adj = properties[CommandPropertyID.RETRIGGER_ADJ];
 
@@ -141,7 +141,7 @@ public abstract class Command
         Debug.Log($"Command {this.GetType().Name} has triggered and permanently increased {target.commandName} retrigger to {retrigger_adj.EffectiveValue}. {target.commandName} now triggers {target.properties[CommandPropertyID.RETRIGGER].EffectiveValue} times.");
     }
 
-    protected void BreakCommand(CommandContext context, Command target)
+    protected void BreakCommand(CommandContext context, BaseCommand target)
     {
         target.broken = true;
     }
@@ -158,7 +158,7 @@ public abstract class Command
     /// <param name="originator">Original command that. Return value will be next in queue, after this one</param>
     /// <param name="includeNull">When true, result may include null from empty slot. Otherwise it will check for next command that is not null</param>
     /// <returns></returns>
-    protected Command FindNextCommandInQueue(List<Command> queue, Command originator, bool includeNull = false)
+    protected BaseCommand FindNextCommandInQueue(List<BaseCommand> queue, BaseCommand originator, bool includeNull = false)
     {
         var getNextOne = false;
         for (int i = 0; i < queue.Count; i++)

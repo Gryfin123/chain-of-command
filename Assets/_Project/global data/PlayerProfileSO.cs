@@ -12,7 +12,7 @@ public class PlayerProfileSO : ScriptableObject
     [SerializeField] private float _fuel;
     [SerializeField] private int _storageCapacity;
     [SerializeField] private int _chainCapacity;
-    private List<Command> _commandList;
+    private List<BaseCommand> _commandList;
 
     public float HpMax 
     { 
@@ -36,7 +36,7 @@ public class PlayerProfileSO : ScriptableObject
     public float Fuel { get => _fuel; private set => _fuel = value; }
     public int StorageCapacity { get => _storageCapacity; private set => _storageCapacity = value; }
     public int ChainCapacity { get => _chainCapacity; private set => _chainCapacity = value; }
-    public List<Command> CommandList { get => _commandList; private set => _commandList = value; }
+    public List<BaseCommand> CommandList { get => _commandList; private set => _commandList = value; }
 
     public void IncreaseMaxHealth(float val)
     {
@@ -54,12 +54,12 @@ public class PlayerProfileSO : ScriptableObject
         HpCurrent -= amount;
     }
 
-    public void AddCommand(Command newCommand)
+    public void AddCommand(BaseCommand newCommand)
     {
         // Not Implemented
         // commandList.Add(newCommand);
     }
-    public void RemoveCommand(Command targetCommand)
+    public void RemoveCommand(BaseCommand targetCommand)
     {
         // Not Implemented
         // commandList.Remove(newCommand);

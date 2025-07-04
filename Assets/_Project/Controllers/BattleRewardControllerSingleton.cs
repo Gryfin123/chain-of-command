@@ -38,12 +38,12 @@ public class BattleRewardControllerSingleton : MonoBehaviour
     [SerializeField]
     private GameObject _commandPrefab;
     [SerializeField]
-    private List<Command> _pickedRewards;
+    private List<BaseCommand> _pickedRewards;
 
     public List<CommandDataTemplateSO> RewardPool { get => _rewardPool; }
     public List<CommandSlot> RewardCommandSlots { get => _rewardCommandSlots; }
     public GameObject CommandPrefab { get => _commandPrefab; }
-    public List<Command> PickedRewards { get => _pickedRewards; }
+    public List<BaseCommand> PickedRewards { get => _pickedRewards; }
 
 
     public void InitiatePhase(int amountRewardsToGenerate)
@@ -58,13 +58,13 @@ public class BattleRewardControllerSingleton : MonoBehaviour
     /// </summary>
     public void GenerateRewards(int amountRewardsToGenerate)
     {
-        _pickedRewards = new List<Command>();
+        _pickedRewards = new List<BaseCommand>();
 
         for (int i = 0; i < amountRewardsToGenerate; i++)
         {
             // Pick rewards
             var currSource = _rewardPool[Random.Range(0, _rewardPool.Count)];
-            var newReward = new Command(currSource);
+            var newReward = currSource.CreateInstanceCommand();
 
             // Fill list
             _pickedRewards.Add(newReward);

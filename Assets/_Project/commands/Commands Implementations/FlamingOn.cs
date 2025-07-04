@@ -1,10 +1,10 @@
-public class FlamingOn : Command
+public class FlamingOn : BaseCommand
 {
     public FlamingOn(CommandDataTemplateSO source) : base(source)
     {
     }
 
-    public override void TriggerCommand(CommandContext context)
+    public override void Trigger(CommandContext context)
     {
         ApplyDamage(context, CommandTarget.OPPONENT);
         IncreaseCommandDamage(context, context.SourceCommand);
