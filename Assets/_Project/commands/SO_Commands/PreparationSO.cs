@@ -1,7 +1,9 @@
+using UnityEngine;
+
 public class PreparationSO : CommandDataTemplateSO
 {
-    public override void TriggerCommand(CommandContext context)
+    public override Command CreateInstanceCommand()
     {
-        IncreaseCommandRetrigger(context, context.SourceCommand);
+        return new Preparation(this);
     }
 }

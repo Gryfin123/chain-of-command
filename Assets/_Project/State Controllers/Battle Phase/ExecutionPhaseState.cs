@@ -45,7 +45,7 @@ public class ExecutionPhaseState : BaseGameState
 
     private void Initialize()
     {
-        _copiedQueue = BattleControllerSingleton.Instance.GetChainStatus(true);
+        _copiedQueue = BattleControllerSingleton.Instance.GetChainStatus();
         _opponent = BattleControllerSingleton.Instance.OpponentProfile;
     }
 
@@ -53,16 +53,29 @@ public class ExecutionPhaseState : BaseGameState
     private void ProcessCurrentQueue()
     {
         // Process each command setup in the chain
-        foreach (var command in _copiedQueue)
+        for (int i = 0; i < _copiedQueue.Count; i++)
         {
+            var command = _copiedQueue[i];
+
             if (command != null)
             {
                 var context = new CommandContext
                 {
+                    CurrentQueue = _copiedQueue,
                     SourceCommand = command,
                     SourceGameState = this
                 };
-                command.Trigger(context);
+
+                // Trigger command by deafult
+                // and one time for each retrigger it has
+                int amountTriggered = 0;
+
+                do
+                {
+                    command.Trigger(context);
+                    amountTriggered++;
+                }
+                while (amountTriggered <= command.properties[CommandPropertyID.RETRIGGER].EffectiveValue);
             }
             else
             {

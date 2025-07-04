@@ -1,7 +1,7 @@
 public class FireStrikeSO : CommandDataTemplateSO
 {
-    public override void TriggerCommand(CommandContext context)
+    public override Command CreateInstanceCommand()
     {
-        ApplyDamage(context, CommandTarget.OPPONENT);
+        return new FireStrike(this);
     }
 }

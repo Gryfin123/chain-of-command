@@ -1,7 +1,7 @@
 public class HealingTouchSO : CommandDataTemplateSO
 {
-    public override void TriggerCommand(CommandContext context)
+    public override Command CreateInstanceCommand()
     {
-        ApplyHealing(context, CommandTarget.PLAYER);
+        return new HealingTouch(this);
     }
 }

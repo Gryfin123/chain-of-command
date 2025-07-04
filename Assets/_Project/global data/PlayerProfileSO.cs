@@ -6,39 +6,52 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Player Profile", menuName = "ScriptableObjects/PlayerProfile")]
 public class PlayerProfileSO : ScriptableObject
 {
-    [SerializeField] private int credits;
-    [SerializeField] private float hpMax;
-    [SerializeField] private float hpCurrent;
-    [SerializeField] private float fuel;
-    [SerializeField] private int storageCapacity;
-    [SerializeField] private int chainCapacity;
-    private List<Command> commandList;
+    [SerializeField] private int _credits;
+    [SerializeField] private float _hpMax;
+    [SerializeField] private float _hpCurrent;
+    [SerializeField] private float _fuel;
+    [SerializeField] private int _storageCapacity;
+    [SerializeField] private int _chainCapacity;
+    private List<Command> _commandList;
 
     public float HpMax 
     { 
-        get => hpMax;
+        get => _hpMax;
         private set
         {
-            hpCurrent = value;
-            hpMax = value;
+            _hpCurrent = value;
+            _hpMax = value;
         }
     }
-    public float HpCurrent { get => hpCurrent; private set => hpCurrent = value; }
-    public int Credits { get => credits; private set => credits = value; }
-    public float Fuel { get => fuel; private set => fuel = value; }
-    public int StorageCapacity { get => storageCapacity; private set => storageCapacity = value; }
-    public int ChainCapacity { get => chainCapacity; private set => chainCapacity = value; }
-    public List<Command> CommandList { get => commandList; private set => commandList = value; }
+    public float HpCurrent 
+    { 
+        get => _hpCurrent; 
+        private set
+        {
+            _hpCurrent = value;
+            _hpCurrent = Math.Clamp(_hpCurrent, 0, _hpMax);
+        }
+    }
+    public int Credits { get => _credits; private set => _credits = value; }
+    public float Fuel { get => _fuel; private set => _fuel = value; }
+    public int StorageCapacity { get => _storageCapacity; private set => _storageCapacity = value; }
+    public int ChainCapacity { get => _chainCapacity; private set => _chainCapacity = value; }
+    public List<Command> CommandList { get => _commandList; private set => _commandList = value; }
 
     public void IncreaseMaxHealth(float val)
     {
-        hpMax += val;
-        hpCurrent += val;
+        HpMax += val;
+        HpCurrent += val;
+    }
+
+    public void Heal(float amount)
+    {
+        HpCurrent += amount;
     }
 
     public void TakeDamage(float amount)
     {
-        hpCurrent -= amount;
+        HpCurrent -= amount;
     }
 
     public void AddCommand(Command newCommand)

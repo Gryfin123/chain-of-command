@@ -1,7 +1,7 @@
 public class EventHorizonSO : CommandDataTemplateSO
 {
-    public override void TriggerCommand(CommandContext context)
+    public override Command CreateInstanceCommand()
     {
-        IncreaseCommandDamageMultiplier(context, context.SourceCommand);
+        return new EventHorizon(this);
     }
 }

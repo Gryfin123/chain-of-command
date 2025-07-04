@@ -15,7 +15,7 @@ MonoBehaviour:
   banner: {fileID: -1872121982, guid: 7affd489852c8d64aaf18e62bddb183a, type: 3}
   splashart: {fileID: 1109455886, guid: 7affd489852c8d64aaf18e62bddb183a, type: 3}
   commandName: Event Horizon
-  description: Next command deals [damage_adj]x times more damage. Then break.
+  description: Next command deals [damage_adj]x times more damage. Break this.
   tier: 0
   commandType: {fileID: 11400000, guid: 811a9920ba00ab0479bbfcf03f8d09da, type: 2}
   tags:
@@ -26,93 +26,109 @@ MonoBehaviour:
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 0
   damage:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 1
   healing:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 2
   barrier:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 3
   retrigger:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 4
   poison:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 5
   vulnerabilty:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 6
   weakness:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 7
   cost_adj:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 8
   damage_adj:
     _base: 50
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 9
   healing_adj:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 10
   barrier_adj:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 11
   retrigger_adj:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 12
   poison_adj:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 13
   vulnerabilty_adj:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 14
   weakness_adj:
     _base: 0
     _modifier: 0
     _multiplier: 1
     _override: -1
     _overrideBase: -1
+    _associatedEnum: 15

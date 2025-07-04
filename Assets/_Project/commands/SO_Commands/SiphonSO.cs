@@ -1,8 +1,7 @@
 public class SiphonSO : CommandDataTemplateSO
 {
-    public override void TriggerCommand(CommandContext context)
+    public override Command CreateInstanceCommand()
     {
-        ApplyDamage(context, CommandTarget.OPPONENT);
-        ApplyHealing(context, CommandTarget.PLAYER);
+        return new Siphon(this);
     }
 }

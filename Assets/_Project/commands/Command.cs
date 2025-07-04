@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 /// <summary>
 /// A class used as a playable implementation of CommandDataTemplateSO
 /// </summary>
-public class Command
+public abstract class Command
 {
     [SerializeField]
     private CommandDataTemplateSO _dataSource;
@@ -82,9 +83,101 @@ public class Command
         return processedDescription;
     }
 
-    public void Trigger(CommandContext context)
+
+    // ===== Function for Command Trigger Functionality ===== //
+    public abstract void TriggerCommand(CommandContext context);
+    // ======= Common Private Fucntions used in Command Effects ======== //
+    protected void ApplyDamage(CommandContext context, CommandTarget target)
     {
-        _dataSource.TriggerCommand(context);
+        var damage = properties[CommandPropertyID.DAMAGE];
+
+        switch (target)
+        {
+            case CommandTarget.PLAYER:
+                BattleControllerSingleton.Instance.PlayerProfile.TakeDamage(damage.EffectiveValue);
+                break;
+            case CommandTarget.OPPONENT:
+                BattleControllerSingleton.Instance.OpponentProfile.TakeDamage(damage.EffectiveValue);
+                break;
+        }
+        Debug.Log($"Command {this.GetType().Name} has triggered and dealt {damage.EffectiveValue} damage to {target}.");
+    }
+    protected void ApplyHealing(CommandContext context, CommandTarget target)
+    {
+        var healing = properties[CommandPropertyID.HEALING];
+
+        switch (target)
+        {
+            case CommandTarget.PLAYER:
+                BattleControllerSingleton.Instance.PlayerProfile.Heal(healing.EffectiveValue);
+                break;
+            case CommandTarget.OPPONENT:
+                BattleControllerSingleton.Instance.OpponentProfile.Heal(healing.EffectiveValue);
+                break;
+        }
+        Debug.Log($"Command {this.GetType().Name} has triggered and healed {target}, by {healing.EffectiveValue}.");
+    }
+
+
+    protected void IncreaseCommandDamage(CommandContext context, Command target)
+    {
+        var damage_adj = properties[CommandPropertyID.DAMAGE_ADJ];
+
+        target.properties[CommandPropertyID.DAMAGE].Modifier += damage_adj.EffectiveValue;
+        Debug.Log($"Command {this.GetType().Name} has triggered and permanently increased {target.commandName} by {damage_adj.EffectiveValue}. {target.commandName} now deals {target.properties[CommandPropertyID.DAMAGE].EffectiveValue}.");
+    }
+    protected void IncreaseCommandDamageMultiplier(CommandContext context, Command target)
+    {
+        var damage_adj = properties[CommandPropertyID.DAMAGE_ADJ];
+
+        target.properties[CommandPropertyID.DAMAGE].Modifier *= damage_adj.EffectiveValue;
+        Debug.Log($"Command {this.GetType().Name} has triggered and permanently increased {target.commandName} times {damage_adj.EffectiveValue}. {target.commandName} now deals {target.properties[CommandPropertyID.DAMAGE].EffectiveValue}.");
+    }
+    protected void IncreaseCommandRetrigger(CommandContext context, Command target)
+    {
+        var retrigger_adj = properties[CommandPropertyID.RETRIGGER_ADJ];
+
+        target.properties[CommandPropertyID.RETRIGGER].Modifier += retrigger_adj.EffectiveValue;
+        Debug.Log($"Command {this.GetType().Name} has triggered and permanently increased {target.commandName} retrigger to {retrigger_adj.EffectiveValue}. {target.commandName} now triggers {target.properties[CommandPropertyID.RETRIGGER].EffectiveValue} times.");
+    }
+
+    protected void BreakCommand(CommandContext context, Command target)
+    {
+        target.broken = true;
+    }
+
+    protected void ApplyBuff(CommandContext context, string buff)
+    {
+        Debug.Log($"Command {GetType().Name} has triggered and applied a buff: {buff}.");
+    }
+
+    /// <summary>
+    /// Search given queue and find a command next in line after originator
+    /// </summary>
+    /// <param name="context">Queue that will be searched through</param>
+    /// <param name="originator">Original command that. Return value will be next in queue, after this one</param>
+    /// <param name="includeNull">When true, result may include null from empty slot. Otherwise it will check for next command that is not null</param>
+    /// <returns></returns>
+    protected Command FindNextCommandInQueue(List<Command> queue, Command originator, bool includeNull = false)
+    {
+        var getNextOne = false;
+        for (int i = 0; i < queue.Count; i++)
+        {
+            if (getNextOne)
+            {
+                if (queue[i] == null && includeNull ||
+                    queue[i] != null)
+                {
+                    return queue[i];
+                }
+            }
+            else if (queue[i]?.Equals(originator) == true)
+            {
+                getNextOne = true;
+            }
+        }
+
+        return null;
     }
 }
 
@@ -125,6 +218,24 @@ public class CommandProperty
     public int OverrideBase { get => _overrideBase; set => _overrideBase = value; }
 }
 
+[Serializable]
+public class CommandTags
+{
+    public List<CommandTagsSO> All
+    {
+        get
+        {
+            var combined = Base.Union(Added).ToList();
+            return combined;
+        }
+    }
+
+    [SerializeField] private List<CommandTagsSO> _base = new List<CommandTagsSO>();
+    [SerializeField] private List<CommandTagsSO> _added = new List<CommandTagsSO>();
+    public List<CommandTagsSO> Base { get => _base; set => _base = value; }
+    public List<CommandTagsSO> Added { get => _added; set => _added = value; }
+}
+
 public enum CommandPropertyID
 {
     COST,
@@ -150,22 +261,8 @@ public enum CommandPropertyID
 
 }
 
-[Serializable]
-public class CommandTags
+public enum CommandTarget
 {
-    public List<CommandTagsSO> All
-    {
-        get
-        {
-            var combined = Base.Union(Added).ToList();
-            return combined;
-        }
-    }
-
-    [SerializeField] private List<CommandTagsSO> _base = new List<CommandTagsSO>();
-    [SerializeField] private List<CommandTagsSO> _added = new List<CommandTagsSO>();
-    public List<CommandTagsSO> Base { get => _base; set => _base = value; }
-    public List<CommandTagsSO> Added { get => _added; set => _added = value; }
+    PLAYER,
+    OPPONENT
 }
-
-

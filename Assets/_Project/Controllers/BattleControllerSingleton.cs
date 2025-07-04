@@ -75,18 +75,14 @@ public class BattleControllerSingleton : MonoBehaviour
     /// </summary>
     /// <param name="includeNull">If true, will also include empty spaces in the storage as null</param>
     /// <returns></returns>
-    public List<Command> GetChainStatus(bool includeNull = false)
+    public List<Command> GetChainStatus()
     {
         var returnList = new List<Command>();
 
         foreach (var slot in _playerChainSlots)
         {
             var foundCommand = slot.GetCurrentCommand();
-
-            if (foundCommand == null && includeNull || foundCommand != null)
-            {
-                returnList.Add(foundCommand);
-            }
+            returnList.Add(foundCommand);
         }
 
         return returnList;

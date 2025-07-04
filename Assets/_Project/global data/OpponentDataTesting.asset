@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d50c3a6d2f20a348b209647b4436962, type: 3}
   m_Name: OpponentDataTesting
   m_EditorClassIdentifier: 
-  _playerProfile: {fileID: 0}
+  _playerProfile: {fileID: 11400000, guid: 02142f61fcf89f949bfdcba0a0e52eb8, type: 2}
   _attack: 10
   _hpMax: 100
   _hpCurrent: 100
