@@ -1,9 +1,9 @@
-public abstract class BaseGameState
+public abstract class BaseBattleState
 {
-    protected GameStateManager _ctx;
-    protected GameStateFactory _factory;
+    protected BattleStateManager _ctx;
+    protected BattleStateFactory _factory;
 
-    public BaseGameState(GameStateManager context, GameStateFactory factory)
+    public BaseBattleState(BattleStateManager context, BattleStateFactory factory)
     {
         _ctx = context;
         _factory = factory;
@@ -14,7 +14,7 @@ public abstract class BaseGameState
     public abstract void ExitState();
     public abstract void RecieveInstruction(string instruction);
 
-    protected void SwitchState(BaseGameState newState)
+    protected void SwitchState(BaseBattleState newState)
     {
         ExitState();
         _ctx.CurrState = newState;

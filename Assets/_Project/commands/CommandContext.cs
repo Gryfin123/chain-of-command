@@ -8,5 +8,4 @@ public class CommandContext
 {
     public List<BaseCommand> CurrentQueue;
     public BaseCommand SourceCommand { get; set; } // Reference to Command that triggers the effect
-    public BaseGameState SourceGameState { get; set; } // Reference to Game State where this was activated
 }

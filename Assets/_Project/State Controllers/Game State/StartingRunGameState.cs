@@ -24,14 +24,4 @@ public class StartingRunGameState : BaseGameState
     public override void UpdateState()
     {
     }
-
-    public override void CheckSwitchStates()
-    {
-
-    }
-
-    public override void InitializeSubState()
-    {
-
-    }
 }

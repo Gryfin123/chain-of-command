@@ -4,15 +4,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class OpponentPhaseState : BaseGameState
+public class OpponentPhaseState : BaseBattleState
 {
-    public OpponentPhaseState(GameStateManager context, GameStateFactory factory) : base(context, factory)
+    public OpponentPhaseState(BattleStateManager context, BattleStateFactory factory) : base(context, factory)
     {
-    }
-
-    public override void CheckSwitchStates()
-    {
-
     }
 
     public override void EnterState()
@@ -24,11 +19,6 @@ public class OpponentPhaseState : BaseGameState
     }
 
     public override void ExitState()
-    {
-
-    }
-
-    public override void InitializeSubState()
     {
 
     }
@@ -68,7 +58,7 @@ public class OpponentPhaseState : BaseGameState
         else
         {
             Debug.Log("Player is dead :<. Returning To Main Menu.");
-            _currSuperState.RecieveInstruction("failure");
+            _ctx.MasterState.RecieveInstruction("defeat");
         }
     }
 }

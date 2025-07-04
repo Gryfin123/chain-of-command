@@ -25,14 +25,4 @@ public class EventsGameState : BaseGameState
     {
         throw new System.NotImplementedException();
     }
-
-    public override void CheckSwitchStates()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void InitializeSubState()
-    {
-        throw new System.NotImplementedException();
-    }
 }

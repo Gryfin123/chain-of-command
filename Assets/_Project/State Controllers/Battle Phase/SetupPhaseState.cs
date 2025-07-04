@@ -3,15 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetupPhaseState : BaseGameState
+public class SetupPhaseState : BaseBattleState
 {
-    public SetupPhaseState(GameStateManager context, GameStateFactory factory) : base(context, factory)
+    public SetupPhaseState(BattleStateManager context, BattleStateFactory factory) : base(context, factory)
     {
-    }
-
-    public override void CheckSwitchStates()
-    {
-
     }
 
     public override void EnterState()
@@ -22,11 +17,6 @@ public class SetupPhaseState : BaseGameState
     public override void ExitState()
     {
         ScriptableObjectAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = false;
-    }
-
-    public override void InitializeSubState()
-    {
-
     }
 
     public override void RecieveInstruction(string instruction)

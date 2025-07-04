@@ -57,14 +57,4 @@ public class BattleRewardGameState : BaseGameState
     {
         _ctx.playerProfileSO.CommandList.Add(pickedReward);
     }
-
-    public override void CheckSwitchStates()
-    {
-
-    }
-
-    public override void InitializeSubState()
-    {
-
-    }
 }

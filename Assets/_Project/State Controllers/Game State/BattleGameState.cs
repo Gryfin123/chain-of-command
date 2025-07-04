@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BattleGameState : BaseGameState
 {
+    private BattleStateManager _battleCtx;
+
     public BattleGameState(GameStateManager context, GameStateFactory factory) : base(context, factory) 
     {
+        _battleCtx = new BattleStateManager(this);
     }
 
     public override void RecieveInstruction(string instruction)
@@ -16,16 +19,16 @@ public class BattleGameState : BaseGameState
             case "victory":
                 SwitchState(_factory.BattleReward());
                 break;
-            case "failure":
+            case "defeat":
                 SwitchState(_factory.MainMenu());
                 break;
             default:
                 Debug.Log("Undetermined instruction received: " + instruction);
                 break;
         }
-        
+
         // Check if instruction is meant for the substate.
-        _currSubState.RecieveInstruction(instruction);
+        _battleCtx.PassInstruction(instruction);
     }
 
     public override void EnterState()
@@ -33,24 +36,18 @@ public class BattleGameState : BaseGameState
         // Sets up UI to allow for battle
         BattleControllerSingleton.Instance.OpponentProfile.Init();
         BattleControllerSingleton.Instance.InitiateBattle();
-        InitializeSubState();
+
+        _battleCtx.Init();
     }
 
     public override void ExitState()
     {
         BattleControllerSingleton.Instance.battlePhaseCanvas.gameObject.SetActive(false);
+        _battleCtx.CurrState.ExitState();
     }
 
     public override void UpdateState()
     {
-        CheckSwitchStates();
-    }
-
-    public override void CheckSwitchStates() { }
-
-    public override void InitializeSubState()
-    {
-        SetSubState(_factory.SetupPhase());
-        _currSubState.EnterState();
+        _battleCtx.Update();
     }
 }

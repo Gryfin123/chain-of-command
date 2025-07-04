@@ -34,7 +34,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Update()
     {
-        CurrState?.UpdateStates();
+        CurrState?.UpdateState();
     }
 
     public void PassInstruction(string instruction)

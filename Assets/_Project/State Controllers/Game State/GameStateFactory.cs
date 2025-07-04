@@ -35,18 +35,4 @@ public class GameStateFactory
     {
         return new BattleRewardGameState(_ctx, this);
     }
-
-    // Battle State SubStates
-    public BaseGameState ExecutionPhase()
-    {
-        return new ExecutionPhaseState(_ctx, this);
-    }
-    public BaseGameState OponnetPhase()
-    {
-        return new OpponentPhaseState(_ctx, this);
-    }
-    public BaseGameState SetupPhase()
-    {
-        return new SetupPhaseState(_ctx, this);
-    }
 }

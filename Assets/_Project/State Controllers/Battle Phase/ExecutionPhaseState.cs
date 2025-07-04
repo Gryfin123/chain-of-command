@@ -5,18 +5,13 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor.Searcher;
 using UnityEngine;
 
-public class ExecutionPhaseState : BaseGameState
+public class ExecutionPhaseState : BaseBattleState
 {
     private OpponentDataSO _opponent;
     private List<BaseCommand> _copiedQueue;
 
-    public ExecutionPhaseState(GameStateManager context, GameStateFactory factory) : base(context, factory)
+    public ExecutionPhaseState(BattleStateManager context, BattleStateFactory factory) : base(context, factory)
     {
-    }
-
-    public override void CheckSwitchStates()
-    {
-
     }
 
     public override void EnterState()
@@ -27,11 +22,6 @@ public class ExecutionPhaseState : BaseGameState
 
     public override void ExitState()
     {
-    }
-
-    public override void InitializeSubState()
-    {
-
     }
 
     public override void RecieveInstruction(string instruction) {}
@@ -62,8 +52,7 @@ public class ExecutionPhaseState : BaseGameState
                 var context = new CommandContext
                 {
                     CurrentQueue = _copiedQueue,
-                    SourceCommand = command,
-                    SourceGameState = this
+                    SourceCommand = command
                 };
 
                 // Trigger command by deafult
@@ -95,7 +84,7 @@ public class ExecutionPhaseState : BaseGameState
         if (_opponent.HpCurrent <= 0)
         {
             Debug.Log($"Opponent is dead ({_opponent.HpCurrent}/{_opponent.HpMax})");
-            _currSuperState.RecieveInstruction("victory");
+            _ctx.MasterState.RecieveInstruction("victory");
         }    
         else
         {
