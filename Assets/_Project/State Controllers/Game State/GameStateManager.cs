@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -40,5 +41,10 @@ public class GameStateManager : MonoBehaviour
     public void PassInstruction(string instruction)
     {
         CurrState?.RecieveInstruction(instruction);
+    }
+
+    public void LaunchCoroutine(IEnumerator routine)
+    {
+        StartCoroutine(routine);
     }
 }

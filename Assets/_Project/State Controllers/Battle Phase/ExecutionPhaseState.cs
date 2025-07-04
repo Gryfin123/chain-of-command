@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Searcher;
 using UnityEngine;
 
 public class ExecutionPhaseState : BaseBattleState
@@ -18,6 +15,7 @@ public class ExecutionPhaseState : BaseBattleState
     {
         Initialize();
 
+        _ctx.MasterState.StartExecution(ProcessCurrentQueue());
     }
 
     public override void ExitState()
@@ -28,7 +26,6 @@ public class ExecutionPhaseState : BaseBattleState
 
     public override void UpdateState()
     {
-        ProcessCurrentQueue();
     }
 
     // ==== Private Functions ==== //
@@ -39,8 +36,11 @@ public class ExecutionPhaseState : BaseBattleState
         _opponent = BattleControllerSingleton.Instance.OpponentProfile;
     }
 
-
-    private void ProcessCurrentQueue()
+    /// <summary>
+    /// Function to be run by a Coroutine to execute the prepared commands.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator ProcessCurrentQueue()
     {
         // Process each command setup in the chain
         for (int i = 0; i < _copiedQueue.Count; i++)
@@ -61,34 +61,42 @@ public class ExecutionPhaseState : BaseBattleState
 
                 do
                 {
+                    if (amountTriggered != 0)
+                    {
+                        yield return new WaitForSeconds(0.5f);
+                    }
+
                     command.Trigger(context);
                     amountTriggered++;
                 }
                 while (amountTriggered <= command.properties[CommandPropertyID.RETRIGGER].EffectiveValue);
-            }
-            else
-            {
-                Debug.Log("Processed Empty Slot");
+
+                yield return new WaitForSeconds(1.5f);
             }
 
             // Check if opponent Lost
-            CheckOpponentStatus();
+            if (CheckOpponentStatus())
+            {
+                _ctx.MasterState.RecieveInstruction("victory");
+                yield break;
+            }
         }
 
         // If execution finished, move to next State
         SwitchState(_factory.OponnetPhase());
     }
 
-    private void CheckOpponentStatus()
+    private bool CheckOpponentStatus()
     {
         if (_opponent.HpCurrent <= 0)
         {
             Debug.Log($"Opponent is dead ({_opponent.HpCurrent}/{_opponent.HpMax})");
-            _ctx.MasterState.RecieveInstruction("victory");
+            return true;
         }    
         else
         {
             Debug.Log($"Opponent is still alive ({_opponent.HpCurrent}/{_opponent.HpMax})");
+            return false;
         }
     }
 }

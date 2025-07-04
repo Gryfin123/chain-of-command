@@ -1,0 +1,10 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = nameof(#SCRIPTNAME#), menuName = "ScriptableObjects / CommandTemplate / " + nameof(#SCRIPTNAME#))]
+public class NewCommandTemplateScript : CommandDataTemplateSO
+{
+    public override BaseCommand CreateInstanceCommand()
+    {
+ 	#NOTRIM#
+    }
+}

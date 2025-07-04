@@ -1,0 +1,11 @@
+using UnityEngine;
+
+public class #SCRIPTNAME# : BaseCommand // Replace MyParentScriptableObject with your actual parent class
+{
+    public #SCRIPTNAME#(CommandDataTemplateSO source) : base(source) { }
+
+    public override void Trigger(CommandContext context)
+    {
+        #NOTRIM#
+    }
+}

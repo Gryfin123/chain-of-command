@@ -50,4 +50,9 @@ public class BattleGameState : BaseGameState
     {
         _battleCtx.Update();
     }
+
+    public void StartExecution(IEnumerator routine)
+    {
+        _ctx.StartCoroutine(routine);
+    }
 }
