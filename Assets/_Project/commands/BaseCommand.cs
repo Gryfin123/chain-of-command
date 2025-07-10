@@ -82,10 +82,17 @@ public abstract class BaseCommand
 
         return processedDescription;
     }
+    public void Repair()
+    {
+        broken = false;
+    }
+
 
 
     // ===== Function for Command Trigger Functionality ===== //
     public abstract void Trigger(CommandContext context);
+
+
     // ======= Common Private Fucntions used in Command Effects ======== //
     protected void ApplyDamage(CommandContext context, CommandTarget target)
     {

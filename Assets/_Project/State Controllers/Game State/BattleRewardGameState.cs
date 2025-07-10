@@ -25,6 +25,9 @@ public class BattleRewardGameState : BaseGameState
             case "reward3":
                 SelectedReward(reward3);
                 break;
+            case "repair":
+                RepairCommand();
+                break;
             default:
                 Debug.Log("Undetermined instruction received: " + instruction);
                 break;
@@ -42,11 +45,15 @@ public class BattleRewardGameState : BaseGameState
         reward3 = BattleRewardControllerSingleton.Instance.PickedRewards[2];
 
         BattleRewardControllerSingleton.Instance.rewardPhaseCanvas.gameObject.SetActive(true);
+
+        ScriptableObjectAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = true;
     }
 
     public override void ExitState()
     {
         BattleRewardControllerSingleton.Instance.rewardPhaseCanvas.gameObject.SetActive(false);
+
+        ScriptableObjectAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = false;
     }
 
     public override void UpdateState()
@@ -56,5 +63,15 @@ public class BattleRewardGameState : BaseGameState
     private void SelectedReward(BaseCommand pickedReward)
     {
         _ctx.playerProfileSO.CommandList.Add(pickedReward);
+    }
+
+    private void RepairCommand()
+    {
+        var command = BattleRewardControllerSingleton.Instance.RepairCommandSlot.GetCurrentCommand();
+
+        if (BattleRewardControllerSingleton.Instance.isRepairValid(command))
+        {
+            command.data.Repair();
+        }
     }
 }

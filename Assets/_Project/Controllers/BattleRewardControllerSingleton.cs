@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Singleton instance of BattleController. 
@@ -35,6 +36,12 @@ public class BattleRewardControllerSingleton : MonoBehaviour
     private List<CommandSlot> _playerStorageSlots;
     [SerializeField]
     private List<CommandSlot> _rewardCommandSlots;
+
+    [SerializeField]
+    private CommandSlot _repairCommandSlot;
+    [SerializeField]
+    private Button _repairButton;
+
     [SerializeField]
     private GameObject _commandPrefab;
     [SerializeField]
@@ -44,12 +51,26 @@ public class BattleRewardControllerSingleton : MonoBehaviour
     public List<CommandSlot> RewardCommandSlots { get => _rewardCommandSlots; }
     public GameObject CommandPrefab { get => _commandPrefab; }
     public List<BaseCommand> PickedRewards { get => _pickedRewards; }
-
+    public CommandSlot RepairCommandSlot { get => _repairCommandSlot; set => _repairCommandSlot = value; }
 
     public void InitiatePhase(int amountRewardsToGenerate)
     {
         RefreshSlots();
         GenerateRewards(amountRewardsToGenerate);
+    }
+
+    private void Update()
+    {
+        var cmd = _repairCommandSlot.GetCurrentCommand();
+
+        if (isRepairValid(cmd))
+        {
+            _repairButton.interactable = true;
+        }
+        else
+        {
+            _repairButton.interactable = false;
+        }
     }
 
 
@@ -101,7 +122,11 @@ public class BattleRewardControllerSingleton : MonoBehaviour
         {
             slot.RemoveCommand();
         }
+
+        _repairCommandSlot.RemoveCommand();
     }
-
-
+    public bool isRepairValid(CommandDisplay cmd)
+    {
+        return (cmd != null && cmd.data.broken);
+    }
 }
