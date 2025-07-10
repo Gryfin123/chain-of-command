@@ -158,20 +158,20 @@ public abstract class BaseCommand
     /// <param name="originator">Original command that. Return value will be next in queue, after this one</param>
     /// <param name="includeNull">When true, result may include null from empty slot. Otherwise it will check for next command that is not null</param>
     /// <returns></returns>
-    protected BaseCommand FindNextCommandInQueue(List<BaseCommand> queue, BaseCommand originator, bool includeNull = false)
+    protected CommandDisplay FindNextCommandInQueue(List<CommandDisplay> queue, CommandDisplay originator, bool includeNull = false)
     {
         var getNextOne = false;
         for (int i = 0; i < queue.Count; i++)
         {
             if (getNextOne)
             {
-                if (queue[i] == null && includeNull ||
-                    queue[i] != null)
+                if (queue[i].data == null && includeNull ||
+                    queue[i].data != null)
                 {
                     return queue[i];
                 }
             }
-            else if (queue[i]?.Equals(originator) == true)
+            else if (queue[i]?.data.Equals(originator.data) == true)
             {
                 getNextOne = true;
             }

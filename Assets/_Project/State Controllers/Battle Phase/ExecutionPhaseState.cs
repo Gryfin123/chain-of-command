@@ -5,7 +5,7 @@ using UnityEngine;
 public class ExecutionPhaseState : BaseBattleState
 {
     private OpponentDataSO _opponent;
-    private List<BaseCommand> _copiedQueue;
+    private List<CommandDisplay> _copiedQueue;
 
     public ExecutionPhaseState(BattleStateManager context, BattleStateFactory factory) : base(context, factory)
     {
@@ -55,6 +55,15 @@ public class ExecutionPhaseState : BaseBattleState
                     SourceCommand = command
                 };
 
+                // If command is broken, don't trigger it.
+                // If it breaks during one of the triggers, all other retriggers should fire too.
+                if (command.data.broken)
+                {
+                    Debug.Log($"Attempted to trigger {command.data.commandName}, but command is broken.");
+                    yield return new WaitForSeconds(0.5f);
+                    continue;
+                }
+
                 // Trigger command by deafult
                 // and one time for each retrigger it has
                 int amountTriggered = 0;
@@ -66,10 +75,11 @@ public class ExecutionPhaseState : BaseBattleState
                         yield return new WaitForSeconds(0.5f);
                     }
 
-                    command.Trigger(context);
+                    command.data.Trigger(context);
+                    context.SourceCommand.UpdateVisual();
                     amountTriggered++;
                 }
-                while (amountTriggered <= command.properties[CommandPropertyID.RETRIGGER].EffectiveValue);
+                while (amountTriggered <= command.data.properties[CommandPropertyID.RETRIGGER].EffectiveValue);
 
                 yield return new WaitForSeconds(1.5f);
             }

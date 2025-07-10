@@ -21,6 +21,7 @@ public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField] private Image bannerComponent;
     [SerializeField] private Image borderComponent;
     [SerializeField] private Image SplashartComponent;
+    [SerializeField] private Image BrokenCrackOverlay;
 
     [SerializeField] private GameObject panelDescription;
     [SerializeField] private RectTransform descriptionAnchorLeft;
@@ -41,6 +42,15 @@ public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         bannerComponent.sprite = data.banner;
         borderComponent.color = data.BannerColor;
         SplashartComponent.sprite = data.splashart;
+
+        if (data.broken)
+        {
+            BrokenCrackOverlay.gameObject.SetActive(true);
+        }
+        else
+        {
+            BrokenCrackOverlay.gameObject.SetActive(false);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

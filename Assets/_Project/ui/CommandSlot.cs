@@ -16,14 +16,14 @@ public class CommandSlot : MonoBehaviour, IDropHandler
     }
 
     /// <summary>
-    /// Returns a Command that is currently stored in the CommandSlot. If Command is not present, returns null.
+    /// Returns a DisplayCommand that is currently stored in the CommandSlot. If Command is not present, returns null.
     /// </summary>
-    /// <returns>Command or null</returns>
-    public BaseCommand GetCurrentCommand()
+    /// <returns>DisplayCommand or null</returns>
+    public CommandDisplay GetCurrentCommand()
     {
         if (transform.childCount > 0)
         {
-            return transform.GetChild(0).gameObject.GetComponent<CommandDisplay>().data;
+            return transform.GetChild(0).gameObject.GetComponent<CommandDisplay>();
         }
         else
         {

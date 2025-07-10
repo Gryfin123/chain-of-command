@@ -53,9 +53,9 @@ public class BattleControllerSingleton : MonoBehaviour
     /// </summary>
     /// <param name="includeNull">If true, will also include empty spaces in the storage as null</param>
     /// <returns></returns>
-    public List<BaseCommand> GetStorageStatus(bool includeNull = false)
+    public List<CommandDisplay> GetStorageStatus(bool includeNull = false)
     {
-        var returnList = new List<BaseCommand>();
+        var returnList = new List<CommandDisplay>();
 
         foreach (var slot in _playerStorageSlots)
         {
@@ -75,9 +75,9 @@ public class BattleControllerSingleton : MonoBehaviour
     /// </summary>
     /// <param name="includeNull">If true, will also include empty spaces in the storage as null</param>
     /// <returns></returns>
-    public List<BaseCommand> GetChainStatus()
+    public List<CommandDisplay> GetChainStatus()
     {
-        var returnList = new List<BaseCommand>();
+        var returnList = new List<CommandDisplay>();
 
         foreach (var slot in _playerChainSlots)
         {

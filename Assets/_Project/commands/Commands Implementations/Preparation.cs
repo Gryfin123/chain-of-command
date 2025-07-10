@@ -16,7 +16,8 @@ public class Preparation : BaseCommand
         // Check if something was found
         if (nextCommand != null)
         {
-            IncreaseCommandRetrigger(context, nextCommand);
+            IncreaseCommandRetrigger(context, nextCommand.data);
+            BreakCommand(context, originator.data);
         }
         else
         {

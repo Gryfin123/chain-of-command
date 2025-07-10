@@ -16,8 +16,8 @@ public class EventHorizon : BaseCommand
         // Check if something was found
         if (nextCommand != null)
         {
-            IncreaseCommandDamageMultiplier(context, nextCommand);
-            BreakCommand(context, context.SourceCommand);
+            IncreaseCommandDamageMultiplier(context, nextCommand.data);
+            BreakCommand(context, context.SourceCommand.data);
         }
         else
         {
