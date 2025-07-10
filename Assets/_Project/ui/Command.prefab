@@ -702,6 +702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdf9a07ffcf5234f872c333e040c183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brokenFontAsset: {fileID: 2100000, guid: b28a0d50eabaca24e8419df6841e1001, type: 2}
+  notBrokenFontAsset: {fileID: 2100000, guid: ac6e9f57ccf271e40a4bd43883f6490b, type: 2}
   labelName: {fileID: 7023508405449003321}
   labelDescription: {fileID: 4772620108099268664}
   labelCost: {fileID: 2669774160880090105}

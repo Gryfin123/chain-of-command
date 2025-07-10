@@ -12,9 +12,15 @@ using UnityEngine.UI;
 /// </summary>
 public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [Header("Data")]
     public BaseCommand data;
     private Canvas canvas;
 
+    [SerializeField] private Material brokenFontAsset;
+    [SerializeField] private Material notBrokenFontAsset;
+
+
+    [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI labelName;
     [SerializeField] private TextMeshProUGUI labelDescription;
     [SerializeField] private TextMeshProUGUI labelCost;
@@ -46,10 +52,12 @@ public class CommandDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if (data.broken)
         {
             BrokenCrackOverlay.gameObject.SetActive(true);
+            labelName.fontMaterial = brokenFontAsset;
         }
         else
         {
             BrokenCrackOverlay.gameObject.SetActive(false);
+            labelName.fontMaterial = notBrokenFontAsset;
         }
     }
 

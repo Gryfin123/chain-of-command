@@ -172,8 +172,8 @@ public abstract class BaseCommand
         {
             if (getNextOne)
             {
-                if (queue[i].data == null && includeNull ||
-                    queue[i].data != null)
+                if (queue[i]?.data == null && includeNull ||
+                    queue[i]?.data != null)
                 {
                     return queue[i];
                 }

@@ -117,12 +117,11 @@ public class BattleRewardControllerSingleton : MonoBehaviour
         }
 
 
-        // Remove Command Prefabs From Chain Slots.
+        // Remove Command Prefabs From Rewards slots.
         foreach (var slot in _rewardCommandSlots)
         {
             slot.RemoveCommand();
         }
-
         _repairCommandSlot.RemoveCommand();
     }
     public bool isRepairValid(CommandDisplay cmd)
