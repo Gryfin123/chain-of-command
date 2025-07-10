@@ -14,21 +14,27 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private RectTransform _rectTransform;
     private Image _image;
 
+    private bool _canBeDragged = true;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (commonFlags.CanMoveCommandsBetweenSlots)
         {
+            _canBeDragged = true;
             parentAfterDrag = transform.parent;
             transform.SetParent(transform.root);
             transform.SetAsLastSibling();
             _image.raycastTarget = false;
         }
+        else
+        {
+            _canBeDragged = false;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (commonFlags.CanMoveCommandsBetweenSlots)
+        if (_canBeDragged)
         {
             _rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         }
@@ -36,7 +42,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (commonFlags.CanMoveCommandsBetweenSlots)
+        if (_canBeDragged)
         {
             transform.SetParent(parentAfterDrag);
             _image.raycastTarget = true;
@@ -49,11 +55,5 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvas = GetComponentInParent<Canvas>();
         _rectTransform = GetComponent<RectTransform>();
         _image = GetComponent<Image>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
