@@ -39,8 +39,6 @@ public class BattleRewardControllerSingleton : MonoBehaviour
 
     [SerializeField]
     private CommandSlot _repairCommandSlot;
-    [SerializeField]
-    private Button _repairButton;
 
     [SerializeField]
     private GameObject _commandPrefab;
@@ -61,16 +59,7 @@ public class BattleRewardControllerSingleton : MonoBehaviour
 
     private void Update()
     {
-        var cmd = _repairCommandSlot.GetCurrentCommand();
 
-        if (isRepairValid(cmd))
-        {
-            _repairButton.interactable = true;
-        }
-        else
-        {
-            _repairButton.interactable = false;
-        }
     }
 
 

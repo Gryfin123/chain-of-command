@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  commonFlags: {fileID: 11400000, guid: 78bd68547898a2b44943f6122626ae5c, type: 2}
+  commonFlags: {fileID: 11400000, guid: 61a030c9582443c4ea504399edbf29c2, type: 2}
   parentAfterDrag: {fileID: 0}
 --- !u!114 &2540680797378315451
 MonoBehaviour:

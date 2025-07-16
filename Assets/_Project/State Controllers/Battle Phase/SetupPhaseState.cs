@@ -11,12 +11,12 @@ public class SetupPhaseState : BaseBattleState
 
     public override void EnterState()
     {
-        ScriptableObjectAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = true;
+        GlobalAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = true;
     }
 
     public override void ExitState()
     {
-        ScriptableObjectAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = false;
+        GlobalAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = false;
     }
 
     public override void RecieveInstruction(string instruction)

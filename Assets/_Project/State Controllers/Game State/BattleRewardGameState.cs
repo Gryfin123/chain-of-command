@@ -46,14 +46,14 @@ public class BattleRewardGameState : BaseGameState
 
         BattleRewardControllerSingleton.Instance.rewardPhaseCanvas.gameObject.SetActive(true);
 
-        ScriptableObjectAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = true;
+        GlobalAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = true;
     }
 
     public override void ExitState()
     {
         BattleRewardControllerSingleton.Instance.rewardPhaseCanvas.gameObject.SetActive(false);
 
-        ScriptableObjectAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = false;
+        GlobalAccessControllerSingleton.Instance.CommonFlags.CanMoveCommandsBetweenSlots = false;
     }
 
     public override void UpdateState()

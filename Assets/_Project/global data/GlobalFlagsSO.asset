@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd3799ed15666641aef0ae1ee9bf058, type: 3}
-  m_Name: PlaythroughCommonFlagsSO
+  m_Script: {fileID: 11500000, guid: 5311ca147c68310448c8c951fa4954d0, type: 3}
+  m_Name: GlobalFlagsSO
   m_EditorClassIdentifier: 
   _canMoveCommandsBetweenSlots: 1

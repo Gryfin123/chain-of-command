@@ -7,9 +7,9 @@ using UnityEngine;
 /// Singleton instance of BattleController. It should persist between scenes.
 /// It holds references to all necessary instances of objects from the scenes related to Battle Phase.
 /// </summary>
-public class ScriptableObjectAccessControllerSingleton : MonoBehaviour
+public class GlobalAccessControllerSingleton : MonoBehaviour
 {
-    public static ScriptableObjectAccessControllerSingleton Instance { get; private set; }
+    public static GlobalAccessControllerSingleton Instance { get; private set; }
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -25,8 +25,8 @@ public class ScriptableObjectAccessControllerSingleton : MonoBehaviour
 
 
     [SerializeField]
-    private PlaythroughCommonFlagsSO _commonFlags;
+    private GlobalFlagsSO _commonFlags;
 
-    public PlaythroughCommonFlagsSO CommonFlags { get => _commonFlags; }
+    public GlobalFlagsSO CommonFlags { get => _commonFlags; }
 
 }

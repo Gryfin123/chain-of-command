@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// This scriptable object is supposed to keep the flags that are used, but not managed by the player
 /// /// </summary>
-public class PlaythroughCommonFlagsSO : ScriptableObject
+public class GlobalFlagsSO : ScriptableObject
 {
     [SerializeField]
     private bool _canMoveCommandsBetweenSlots = true;

@@ -6,7 +6,7 @@ public class DraggableCommand : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 {
     public Canvas canvas;
     [SerializeField]
-    private PlaythroughCommonFlagsSO commonFlags;
+    private GlobalFlagsSO commonFlags;
 
     /// <summary>
     /// Parent where drag begin
