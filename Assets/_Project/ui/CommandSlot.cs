@@ -1,18 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class CommandSlot : MonoBehaviour, IDropHandler
 {
+    /// <summary>
+    /// Called when a command is moved into the slot (not created)
+    /// It's called after the command is moved in.
+    /// </summary>
+    public UnityEvent<CommandDisplay> onCommandMovedIn;
+    /// <summary>
+    /// Called when command is dragged out of the slot and moved into other slot (not removed)
+    /// It's called before the command is moved out.
+    /// </summary>
+    public UnityEvent<CommandDisplay> onCommandMovedOut;
+
+
+
     public void OnDrop(PointerEventData eventData)
     {
-        if (transform.childCount == 0)
+        if (GetCurrentCommand() == null)
         {
             GameObject dropped = eventData.pointerDrag;
-            DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
+            DraggableCommand draggableItem = dropped.GetComponent<DraggableCommand>();
             draggableItem.parentAfterDrag = transform;
         }
+    }
+
+    /// <summary>
+    /// Comamnd called by other classes when then take a command from this slot, and move it into other one. 
+    /// </summary>
+    public void CommandMovedOut(CommandDisplay movedCommand)
+    {
+        onCommandMovedOut.Invoke(movedCommand);
+    }
+
+    /// <summary>
+    /// Comamnd called by other classes when then take a command has been moved out of different slot and into this one. 
+    /// </summary>
+    public void CommandMovedIn(CommandDisplay movedCommand)
+    {
+        onCommandMovedIn.Invoke(movedCommand);
     }
 
     /// <summary>
